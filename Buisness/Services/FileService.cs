@@ -8,19 +8,19 @@ public class FileService
     private readonly string _directionPath;
     private readonly string _filePath;
 
-    //Konstruktor:
+    //Construktor:
     public FileService(string directionPath = "Data", string fileName = "list.json")
     {
         _directionPath = directionPath;
         _filePath = Path.Combine(directionPath, fileName);
     }
 
-    //Spara till fil:
+    //Save to fil:
     public void SaveToFile(string content)
     {
         if (!string.IsNullOrEmpty(content))
         {
-            //Kontroll om fil finns, annars skapas ny
+            //Control if file exists, else a new file is created
             if (!Directory.Exists(_directionPath))
             {
                 Directory.CreateDirectory(_directionPath);
@@ -31,7 +31,7 @@ public class FileService
     public readonly JsonSerializerOptions _jsonSeralizerOptions;
 
 
-    //Hämta från fil:
+    //Get from fil:
     public string? GetFromFile()
     {
         if(File.Exists(_filePath))
