@@ -13,4 +13,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Buisness\Buisness.csproj" />
+  </ItemGroup>
+
 </Project>
