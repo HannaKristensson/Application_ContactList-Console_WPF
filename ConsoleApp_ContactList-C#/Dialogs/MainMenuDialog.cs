@@ -1,10 +1,11 @@
 ﻿
 using Buisness.Models;
 using Buisness.Services;
+using ConsoleApp_ContactList_C_.Interfaces;
 
 namespace ConsoleApp_ContactList_C_.Dialogs;
 
-public class MenuDialog
+public class MainMenuDialog : IMainMenuDialog
 {
     private readonly ContactService _contactService = new ContactService();
 
@@ -103,7 +104,7 @@ public class MenuDialog
         Console.WriteLine("___ Contact List ___");
 
         //If error:
-        if(hasError)
+        if (hasError)
         {
             Console.WriteLine("Something went wrong, please try again later.");
             Console.ReadKey();

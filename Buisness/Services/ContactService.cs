@@ -1,23 +1,22 @@
 ﻿
+using Buisness.Interfaces;
 using Buisness.Models;
 using System.Text.Json;
 
 namespace Buisness.Services;
 
-public class ContactService
+public class ContactService(FileService fileService) : IContactService
 {
-    private readonly FileService _fileService = new FileService();
+    private readonly FileService _fileService = fileService;
     private List<ContactModel> _contactList = [];
 
 
     //Create contact:
     public void CreateContact(ContactModel contact)
     {
-        contact.Id = _contactList.Count > 0 ? _contactList[^1].Id + 1 : 1;
+        contact.Id = Guid.NewGuid().ToString();
         _contactList.Add(contact);
-
-        var json = JsonSerializer.Serialize(contact);
-        _fileService.SaveToFile(json);
+        _fileService.SaveToFile(JsonSerializer.Serialize(contact));
     }
 
 
