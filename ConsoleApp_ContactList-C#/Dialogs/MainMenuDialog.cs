@@ -1,13 +1,19 @@
 ﻿
-using Buisness.Models;
+using Buisness.Interfaces;
 using Buisness.Services;
+using ConsoleApp_contactList_C_.Factories;
 using ConsoleApp_ContactList_C_.Interfaces;
 
 namespace ConsoleApp_ContactList_C_.Dialogs;
 
-public class MainMenuDialog : IMainMenuDialog
+//public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
+//{
+//    private readonly IContactService _contactService = contactService;
+public class MainMenuDialog
 {
     private readonly ContactService _contactService = new ContactService();
+
+
 
     public void RunMenu()
     {
@@ -51,11 +57,11 @@ public class MainMenuDialog : IMainMenuDialog
     }
 
     //Quit application:
-    private void QuitOption()
+    private static void QuitOption()
     {
         Console.Clear();
         Console.WriteLine("_______ Quit ________");
-        Console.Write("Do you want to quit this application?");
+        Console.Write("Do you want to quit this application? y / n : ");
         var option = Console.ReadLine()!;
 
         if (option.Equals("y", StringComparison.CurrentCultureIgnoreCase))
@@ -68,10 +74,8 @@ public class MainMenuDialog : IMainMenuDialog
     //Create contact:
     private void CreateOption()
     {
-        // vi kommer nu åt contactModel för att vi gjorde ändring i dependencies
-        var contact = new ContactModel();
-        //eller anropa factory:
-        // var contact = ContactFactory();
+        var contact = ContactFactory.Create();
+
         Console.Clear();
 
         Console.WriteLine("___ Create Contact ___");
@@ -91,7 +95,16 @@ public class MainMenuDialog : IMainMenuDialog
         Console.Write("City: ");
         contact.City = Console.ReadLine()!;
 
-        _contactService.CreateContact(contact);
+        var result = _contactService.CreateContact(contact);
+        if (result)
+        {
+            Console.Write("Contact was created successfully!");
+        }
+        else
+        {
+            Console.Write("Unable to create new contact");
+        }
+        Console.ReadKey();
     }
 
 

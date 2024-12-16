@@ -1,57 +1,68 @@
 ﻿
 using Buisness.Interfaces;
-using System.Text.Json;
+using System.Diagnostics;
 
 namespace Buisness.Services;
 
-public class FileService : IFileService
+//public class FileService : IFileService
+//{
+
+//private readonly string _directoryPath;
+//private readonly string _filePath;
+
+////Constructor:
+//public FileService(string directoryPath, string fileName)
+//{
+//    _directoryPath = directoryPath;
+//    _filePath = Path.Combine(_directoryPath, fileName);
+//}
+
+public class FileService
 {
-    private readonly string _directionPath;
+    private readonly string _directoryPath;
     private readonly string _filePath;
 
     //Construktor:
-    public FileService(string directionPath = "data", string fileName = "list.json")
+    public FileService(string directionPath = "Data", string fileName = "list.json")
     {
-        _directionPath = directionPath;
-        _filePath = Path.Combine(_directionPath, fileName);
+        _directoryPath = directionPath;
+        _filePath = Path.Combine(directionPath, fileName);
     }
 
 
     //Save to fil:
-    public void SaveToFile(string content)
+    public bool SaveListToFile(string content)
     {
-        if (!string.IsNullOrEmpty(content))
+        try
         {
-            //Control if file exists, else a new file is created
-            //if (!Directory.Exists(_directionPath))
-            //{
-            //    Directory.CreateDirectory(_directionPath);
-            //    File.WriteAllText(_filePath, content);
-            //}
-            if (!Directory.Exists(_directionPath))
-                Directory.CreateDirectory(_directionPath);
+            if (!Directory.Exists(_directoryPath))
+            {
+                Directory.CreateDirectory(_directoryPath);
+            }
 
-            using var sw = new StreamWriter(_filePath);
-            sw.WriteLine(content);
+            File.WriteAllText(_filePath, content);
+            return true;
         }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error saving to file: {ex.Message}");
+            return false;
+        }
+
     }
-    public readonly JsonSerializerOptions _jsonSeralizerOptions;
 
 
     //Get from fil:
-    public string? GetFromFile()
+    public string? GetListFromFile()
     {
-        //if(File.Exists(_filePath))
-        //{
-        //    return File.ReadAllText(_filePath);
-        //}
-        //return null!;
         if (File.Exists(_filePath))
         {
-            using var sr = new StreamReader(_filePath);
-            string content = sr.ReadToEnd();
-            return content;
+            return File.ReadAllText(_filePath);
         }
-        return string.Empty;
+        else
+        {
+            Debug.WriteLine("File not found.");
+            return null!;
+        }
     }
 }
