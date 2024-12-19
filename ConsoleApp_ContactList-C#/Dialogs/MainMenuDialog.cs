@@ -6,9 +6,7 @@ using ConsoleApp_ContactList_C_.Interfaces;
 
 namespace ConsoleApp_ContactList_C_.Dialogs;
 
-//public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
-//{
-//    private readonly IContactService _contactService = contactService;
+
 public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
 {
     private readonly IContactService _contactService = contactService;

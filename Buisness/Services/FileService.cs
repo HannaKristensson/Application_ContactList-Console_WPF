@@ -4,30 +4,11 @@ using System.Diagnostics;
 
 namespace Buisness.Services;
 
-//public class FileService : IFileService
-//{
 
-//private readonly string _directoryPath;
-//private readonly string _filePath;
-
-////Constructor:
-//public FileService(string directoryPath, string fileName)
-//{
-//    _directoryPath = directoryPath;
-//    _filePath = Path.Combine(_directoryPath, fileName);
-//}
-
-public class FileService : IFileService
+public class FileService(string directionPath = "Data", string fileName = "list.json") : IFileService
 {
-    private readonly string _directoryPath;
-    private readonly string _filePath;
-
-    //Construktor:
-    public FileService(string directionPath = "Data", string fileName = "list.json")
-    {
-        _directoryPath = directionPath;
-        _filePath = Path.Combine(directionPath, fileName);
-    }
+    private readonly string _directoryPath = directionPath;
+    private readonly string _filePath = Path.Combine(directionPath, fileName);
 
 
     //Save to fil:

@@ -8,17 +8,11 @@ using System.Text.Json;
 namespace Buisness.Services;
 
 
-public class ContactService : IContactService
+public class ContactService(IFileService fileService) : IContactService
 {
-    private readonly IFileService _fileService;
+    private readonly IFileService _fileService = fileService;
     private List<ContactModel> _contactList = new();
 
-    //constructor
-    public ContactService(IFileService fileService)
-    {
-        _fileService = fileService;
-    }
-    
 
     //Create contact:
     public bool CreateContact(ContactModel contact)
