@@ -10,11 +10,11 @@ namespace Buisness.Services;
 
 public class ContactService : IContactService
 {
-    private readonly FileService _fileService;
-    private List<ContactModel> _contactList = new List<ContactModel>();
+    private readonly IFileService _fileService;
+    private List<ContactModel> _contactList = new();
 
     //constructor
-    public ContactService(FileService fileService)
+    public ContactService(IFileService fileService)
     {
         _fileService = fileService;
     }
