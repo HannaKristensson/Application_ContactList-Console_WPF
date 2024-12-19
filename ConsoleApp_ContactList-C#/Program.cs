@@ -20,6 +20,17 @@ using ConsoleApp_ContactList_C_.Interfaces;
 //var mainMenuDialog = scope.ServiceProvider.GetRequiredService<IMainMenuDialog>();
 //mainMenuDialog.RunMenu();
 
+IHost host = Host.CreateDefaultBuilder()
+    .ConfigureServices(services =>
+    {
+        services.AddTransient<ContactService>();
+        services.AddTransient<FileService>();
+        services.AddTransient<IMainMenuDialog, MainMenuDialog>();
+    })
+    .Build();
 
-var dialog = new MainMenuDialog();
-dialog.RunMenu();
+var menuDialog = host.Services.GetRequiredService<IMainMenuDialog>();
+menuDialog.RunMenu();
+//var dialog = new MainMenuDialog();
+//dialog.RunMenu();
+

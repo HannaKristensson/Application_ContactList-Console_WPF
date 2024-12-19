@@ -17,7 +17,7 @@ namespace Buisness.Services;
 //    _filePath = Path.Combine(_directoryPath, fileName);
 //}
 
-public class FileService
+public class FileService : IFileService
 {
     private readonly string _directoryPath;
     private readonly string _filePath;
@@ -55,13 +55,21 @@ public class FileService
     //Get from fil:
     public string? GetListFromFile()
     {
-        if (File.Exists(_filePath))
+        try
         {
-            return File.ReadAllText(_filePath);
+            if (File.Exists(_filePath))
+            {
+                return File.ReadAllText(_filePath);
+            }
+            else
+            {
+                Debug.WriteLine("File not found.");
+                return null!;
+            }
         }
-        else
+        catch (Exception ex)
         {
-            Debug.WriteLine("File not found.");
+            Debug.WriteLine($"Error reading from file: {ex.Message}");
             return null!;
         }
     }

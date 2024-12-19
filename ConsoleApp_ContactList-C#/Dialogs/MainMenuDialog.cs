@@ -9,11 +9,9 @@ namespace ConsoleApp_ContactList_C_.Dialogs;
 //public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
 //{
 //    private readonly IContactService _contactService = contactService;
-public class MainMenuDialog
+public class MainMenuDialog(ContactService contactService) : IMainMenuDialog
 {
-    private readonly ContactService _contactService = new ContactService();
-
-
+    private readonly ContactService _contactService = contactService;
 
     public void RunMenu()
     {

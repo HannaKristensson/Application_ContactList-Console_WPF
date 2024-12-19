@@ -7,27 +7,31 @@ using System.Text.Json;
 
 namespace Buisness.Services;
 
-//public class ContactService(IFileService fileService) : IContactService
-//{
-//    private readonly IFileService _fileService = fileService;
-//    private List<ContactModel> _contactList = [];
-public class ContactService
+
+public class ContactService : IContactService
 {
-    private readonly FileService _fileService = new FileService();
-    private List<ContactModel> _contactList = [];
+    private readonly FileService _fileService;
+    private List<ContactModel> _contactList = new List<ContactModel>();
+
+    //constructor
+    public ContactService(FileService fileService)
+    {
+        _fileService = fileService;
+    }
+    
 
     //Create contact:
     public bool CreateContact(ContactModel contact)
     {
         try
         {
-        contact.Id = UniqeIdGenerator.GenerateUniqeId();
+            contact.Id = UniqeIdGenerator.GenerateUniqeId();
 
             _contactList.Add(contact);
 
             var json = JsonSerializer.Serialize(_contactList);
-            var result = _fileService.SaveListToFile(json);
-            return true;
+            bool result = _fileService.SaveListToFile(json);
+            return result;
         }
         catch (Exception ex)
         {
@@ -52,7 +56,7 @@ public class ContactService
             catch (Exception ex)
             {
                 hasError = true;
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Error: {ex.Message}");
                 //ändra till andra errorsättet!!
                 _contactList = [];
             }
@@ -63,9 +67,4 @@ public class ContactService
         }
         return _contactList;
     }
-
-
-
-
-
 }
