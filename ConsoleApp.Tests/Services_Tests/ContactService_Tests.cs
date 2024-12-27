@@ -11,13 +11,13 @@ namespace MainApp.Tests.Services_Tests;
 public class ContactService_Tests
 {
     private readonly Mock<IFileService> _fileServiceMock;
-    //private readonly Mock<IContactService> _contactServiceMock;
+    private readonly Mock<IContactService> _contactServiceMock;
     private readonly ContactService _contactService;
 
     public ContactService_Tests()
     {
         _fileServiceMock = new Mock<IFileService>();
-        //_contactServiceMock = new Mock<IContactService>();
+        _contactServiceMock = new Mock<IContactService>();
         _contactService = new ContactService(_fileServiceMock.Object);
     }
 

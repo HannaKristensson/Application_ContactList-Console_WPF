@@ -11,7 +11,6 @@ public static class ContactFactory
     public static ContactModel Create() => new ();
 
 
-    //Här skapas en metodpå hur form ska fungera
     public static ContactEntity? Create(ContactModel contact)
     {
         try
