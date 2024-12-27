@@ -21,7 +21,6 @@ public class ContactService(IFileService fileService) : IContactService
         try
         {
             contact.Id = UniqeIdGenerator.GenerateUniqeId();
-
             _contactList.Add(contact);
 
             var json = JsonSerializer.Serialize(_contactList);
@@ -30,7 +29,7 @@ public class ContactService(IFileService fileService) : IContactService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Failed to create contact {ex.Message}");
+            Debug.WriteLine($"Failed to create contact: {ex.Message}");
             return false;
         }
     }
@@ -39,27 +38,32 @@ public class ContactService(IFileService fileService) : IContactService
     //Get contacts:
     public IEnumerable<ContactModel> GetContacts()
     {
-        //hasError = false;
-        var json = _fileService.GetListFromFile();
+        try
+        {
+            var json = _fileService.GetListFromFile();
 
-        if (!string.IsNullOrEmpty(json))
-        {
-            try
+            if (!string.IsNullOrEmpty(json))
             {
-                _contactList = JsonSerializer.Deserialize<List<ContactModel>>(json) ?? [];
+                try
+                {
+                    _contactList = JsonSerializer.Deserialize<List<ContactModel>>(json) ?? [];
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    _contactList = [];
+                }
             }
-            catch (Exception ex)
+            else
             {
-                //hasError = true;S
-                Console.WriteLine($"Error: {ex.Message}");
-                //ändra till andra errorsättet!!
-                _contactList = [];
+               Console.WriteLine("No contacts found in file.");
             }
         }
-        else
+        catch (Exception ex)
         {
-            Debug.WriteLine("No contacts found in file.");
+            Console.WriteLine($"Error finding contacts: {ex.Message}");
         }
+
         return _contactList;
     }
 }

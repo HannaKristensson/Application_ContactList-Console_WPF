@@ -25,7 +25,7 @@ public class FileService_Tests
         //arrange
         _fileServiceMock.Setup(fileService => fileService.SaveListToFile(It.IsAny<string>())).Returns(true);
 
-        //Act 
+        //act 
         var result = _fileService.SaveListToFile("");
 
         //assert
@@ -40,16 +40,10 @@ public class FileService_Tests
         //arrange
         _fileServiceMock.Setup(fileService => fileService.GetListFromFile()).Returns("");
 
-        //Act 
+        //act 
         var result = _fileService.GetListFromFile();
 
         //assert
         Assert.Equal("", result);
     }
 }
-
-
-
-//arrange
-//Act 
-//assert

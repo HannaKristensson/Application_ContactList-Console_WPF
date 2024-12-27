@@ -5,7 +5,7 @@ using ConsoleApp_contactList_C_.Factories;
 
 namespace MainApp.Tests.Factories_Tests;
 
-public class ProdcutFactory_Tests
+public class ContactFactory_Tests
 {
     [Fact]
     public void Create_ShouldReturnContactModel()
@@ -14,9 +14,10 @@ public class ProdcutFactory_Tests
 
         //act
         ContactModel result = ContactFactory.Create();
-        //assert
-        Assert.IsType<ContactModel>(result);
 
+        //assert
+        Assert.NotNull(result);
+        Assert.IsType<ContactModel>(result);
     }
 
     [Theory]
@@ -28,7 +29,7 @@ public class ProdcutFactory_Tests
         ContactModel contactModel = new() { FirstName = firstname, LastName = lastname , Email = email, Phone = phone, StreetAddress = streetAddress, PostalCode = postalCode, City = city };
 
         //act 
-        ContactEntity result = ContactFactory.Create(contactModel);
+        ContactEntity result = ContactFactory.Create(contactModel)!;
 
         //assert
         Assert.IsType<ContactEntity>(result);
