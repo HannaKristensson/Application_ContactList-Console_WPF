@@ -5,6 +5,6 @@ namespace Buisness.Interfaces
     public interface IContactService
     {
         bool CreateContact(ContactModel contact);
-        IEnumerable<ContactModel> GetContacts(out bool hasError);
+        IEnumerable<ContactModel> GetContacts();
     }
 }

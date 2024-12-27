@@ -11,7 +11,8 @@ namespace Buisness.Services;
 public class ContactService(IFileService fileService) : IContactService
 {
     private readonly IFileService _fileService = fileService;
-    private List<ContactModel> _contactList = new();
+    private List<ContactModel> _contactList = [];
+
 
 
     //Create contact:
@@ -36,9 +37,9 @@ public class ContactService(IFileService fileService) : IContactService
 
 
     //Get contacts:
-    public IEnumerable<ContactModel> GetContacts(out bool hasError)
+    public IEnumerable<ContactModel> GetContacts()
     {
-        hasError = false;
+        //hasError = false;
         var json = _fileService.GetListFromFile();
 
         if (!string.IsNullOrEmpty(json))
@@ -49,7 +50,7 @@ public class ContactService(IFileService fileService) : IContactService
             }
             catch (Exception ex)
             {
-                hasError = true;
+                //hasError = true;S
                 Console.WriteLine($"Error: {ex.Message}");
                 //ändra till andra errorsättet!!
                 _contactList = [];

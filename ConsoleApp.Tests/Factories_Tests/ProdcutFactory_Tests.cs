@@ -2,7 +2,8 @@
 using Buisness.Models;
 using ConsoleApp_contactList_C_.Factories;
 
-namespace ConsoleApp.Tests.Factories_Tests;
+
+namespace MainApp.Tests.Factories_Tests;
 
 public class ProdcutFactory_Tests
 {

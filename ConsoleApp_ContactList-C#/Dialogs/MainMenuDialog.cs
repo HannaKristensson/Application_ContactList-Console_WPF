@@ -107,18 +107,17 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
     //View all contacts:
     private void ViewOption()
     {
-        bool hasError;
-        var contacts = _contactService.GetContacts(out hasError);
+        var contacts = _contactService.GetContacts();
         Console.Clear();
         Console.WriteLine("___ Contact List ___");
 
         //If error:
-        if (hasError)
-        {
-            Console.WriteLine("Something went wrong, please try again later.");
-            Console.ReadKey();
-            return;
-        }
+        //if ()
+        //{
+        //    Console.WriteLine("Something went wrong, please try again later.");
+        //    Console.ReadKey();
+        //    return;
+        //}
         //If none found:
         if (!contacts.Any())
         {
@@ -136,9 +135,8 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
             Console.WriteLine($"{"Email:",-15}{contact.Email}");
             Console.WriteLine($"{"Adress:",-15}{contact.StreetAddress}");
             Console.WriteLine($"{"",-15}{contact.PostalCode} {contact.City}");
-            Console.ReadKey();
         }
-
+    Console.ReadKey();
     }
 
 

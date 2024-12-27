@@ -6,6 +6,8 @@ namespace ConsoleApp_contactList_C_.Factories;
 
 public static class ContactFactory
 {
+
+
     public static ContactModel Create() => new ();
 
 
