@@ -3,6 +3,7 @@ using Buisness.Interfaces;
 using Buisness.Services;
 using ConsoleApp_contactList_C_.Factories;
 using ConsoleApp_ContactList_C_.Interfaces;
+using System.Runtime.CompilerServices;
 
 namespace ConsoleApp_ContactList_C_.Dialogs;
 
@@ -29,6 +30,7 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
         Console.WriteLine("_____ Main Menu _____");
         Console.WriteLine($"{"1.",-2} Add contact");
         Console.WriteLine($"{"2.",-2} View all contacts");
+        Console.WriteLine($"{"3.",-2} Edit contact");
         Console.WriteLine($"{"Q.",-2} Quit");
         Console.Write("Choose your menu option: ");
         var option = Console.ReadLine()!;
@@ -44,6 +46,9 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
                 break;
             case "2":
                 ViewOption();
+                break;
+            case "3":
+                EditOption();
                 break;
             default:
                 Console.WriteLine("Invalid option");
@@ -111,14 +116,7 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
         Console.Clear();
         Console.WriteLine("___ Contact List ___");
 
-        //If error:
-        //if ()
-        //{
-        //    Console.WriteLine("Something went wrong, please try again later.");
-        //    Console.ReadKey();
-        //    return;
-        //}
-        //If none found:
+        //If empty or not found
         if (!contacts.Any())
         {
             Console.WriteLine("No contacts found, press any key to go back.");
@@ -140,4 +138,45 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
     }
 
 
+
+    private void EditOption()
+    {
+        Console.Clear();
+        Console.WriteLine("___ Edit Contact ___");
+        Console.WriteLine($"{"1.",-2} Edit contact");
+        Console.WriteLine($"{"2.",-2} Delete contact");
+        Console.WriteLine($"{"3.",-2} Return to main menu");
+        var option = Console.ReadLine()!;
+        Console.WriteLine("");
+
+        switch (option.ToLower())
+        {
+            case "1":
+                EditContact();
+                break;
+            case "2":
+                DeleteContact();
+                break;
+            case "3":
+                break;
+            default:
+                Console.WriteLine("Invalid option");
+                Console.ReadKey();
+                break;
+        }
+
+        void EditContact()
+        {
+            Console.WriteLine("edit");
+            Console.ReadKey();
+        }
+
+        void DeleteContact()
+        {
+            Console.WriteLine("delete");
+            Console.ReadKey();
+        }
+    }
 }
+
+
