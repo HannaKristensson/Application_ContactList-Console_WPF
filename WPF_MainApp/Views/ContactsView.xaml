@@ -17,10 +17,10 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
-            <TextBlock Grid.Row="0" Text="{Binding Title}"/>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="{Binding Title}"/>
         </StackPanel>
 
-        <Button Grid.Row="1" Padding="8" Content="Add New Contact" />
+        <Button Grid.Row="1" Padding="8" Content="Add New Contact" Command="{Binding GoToContactsCommand}"/>
     </Grid>
 </UserControl>
