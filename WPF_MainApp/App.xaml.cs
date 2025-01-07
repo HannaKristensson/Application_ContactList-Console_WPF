@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
-using WPF_MainApp.Models;
 using WPF_MainApp.ViewModels;
 using WPF_MainApp.Views;
 
@@ -20,9 +19,10 @@ public partial class App : Application
             {
                 services.AddSingleton<MainViewModel>();
                 services.AddSingleton<MainWindow>();
+                services.AddSingleton<HomeView>();
+                services.AddSingleton<HomeViewModel>();
 
                 services.AddTransient<ContactsViewModel>();
-                services.AddTransient<ContactModel>();
 
                 services.AddTransient<AddContactsViewModel>();
                 services.AddTransient<AddContactView>();

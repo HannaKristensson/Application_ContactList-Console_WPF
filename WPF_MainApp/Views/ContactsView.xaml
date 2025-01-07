@@ -6,21 +6,44 @@
              xmlns:local="clr-namespace:WPF_MainApp.Views"
              
              xmlns:viewmodels="clr-namespace:WPF_MainApp.ViewModels"
+             xmlns:models="clr-namespace:Buisness.Models;assembly=Buisness"
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}"
              
              mc:Ignorable="d" 
-             Background="#454346"
+             Background="#585659"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
-            <TextBlock Text="{Binding Title}"/>
-        </StackPanel>
+        <Grid Grid.Row="0">
+            <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="Bold" />
+        </Grid>
 
-        <Button Grid.Row="1" Padding="8" Content="Add New Contact" Command="{Binding GoToContactsCommand}"/>
+        <ListView Background="#84C6C5" Grid.Row="1" Margin="20 40 20 20" ItemsSource="{Binding ContactModel}" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="models:ContactModel">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text="{Binding Email}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Orientation="Horizontal"></StackPanel>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Row="2" Padding="8" Content="Add New Contact" Command="{Binding GoToContactsCommand}"/>
     </Grid>
 </UserControl>

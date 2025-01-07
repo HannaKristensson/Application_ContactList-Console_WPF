@@ -8,22 +8,40 @@
         xmlns:views="clr-namespace:WPF_MainApp.Views"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:WPF_MainApp"
         mc:Ignorable="d"
-        Background="#454346"
-        Title="MainWindow" Height="500" Width="800">
-    <Grid Margin="15">
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="MainWindow" Height="600" Width="800">
+    <Border Background="#454346" CornerRadius="25">
+        <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+            
+            
+            
+        <Image Grid.Row="2" Width="auto" Height="200" Source="Images/home.jpg" />
+
+
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+                    <views:HomeView/>
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
                     <views:ContactsView/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:AddContactsViewModel}">
                         <views:AddContactView/>
-                    </DataTemplate>
+                </DataTemplate>
 
                 
             </ContentControl.Resources>
         </ContentControl>
     </Grid>
+    </Border>
 </Window>
