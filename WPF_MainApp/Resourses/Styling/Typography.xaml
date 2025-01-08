@@ -7,8 +7,20 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="Medium"/>
     </Style>
     
+    <!-- Headline -->
+    <Style x:Key="HeadlineText" TargetType="TextBlock">
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Calibri"/>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Margin" Value="0 0 0 20"/>
+    </Style>
+
     <!-- Main Text -->
     <Style x:Key="MainText" TargetType="ContentControl">
         <Setter Property="Foreground" Value="White"/>

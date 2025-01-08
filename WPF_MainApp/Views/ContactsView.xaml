@@ -44,6 +44,16 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Grid.Row="2" Padding="8" Content="Add New Contact" Command="{Binding GoToContactsCommand}"/>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" 
+                        Command="{Binding CancelCommand}"
+                        Content="CANCEL" 
+                        Style="{StaticResource CancelButton}" 
+                        Margin="5 0 0 0"/>
+        </Grid>
     </Grid>
 </UserControl>

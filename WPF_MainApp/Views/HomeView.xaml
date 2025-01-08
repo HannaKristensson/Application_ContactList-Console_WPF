@@ -27,8 +27,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-
                 </Grid.ColumnDefinitions>
+                
                 <Button Grid.Column="0"
                         Style="{StaticResource MainButton}" 
                         Command="{Binding AddNewContactCommand}"
@@ -46,27 +46,6 @@
                 <!--  <TextBlock Style="{StaticResource TitleText}" Text="hej hejh jehjeh ejhejeh e"/> -->
                 <Image Width="770"  Source="../Resourses/Images/home.jpg" HorizontalAlignment="Center" />
             </StackPanel>
-        <!--  
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-
-
-        
-
-        <StackPanel Grid.Row="0">
-            <TextBlock Text="{Binding Title}"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-        <Button  Padding="8" Content="Add new Contact" Command="{Binding AddNewContactCommand}"/>
-        </StackPanel>
-        <StackPanel Grid.Row="2">
-            <Button Padding="8" Content="View Contacts" Command="{Binding ViewContactsCommand}"/>
-        </StackPanel>
--->
-        
-    </Grid>
+        </Grid>
     </Border>
 </UserControl>

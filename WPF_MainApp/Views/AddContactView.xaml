@@ -9,15 +9,42 @@
              xmlns:viewmodels="clr-namespace:WPF_MainApp.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:AddContactsViewModel}"
              
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+            d:DesignHeight="535" d:DesignWidth="770">
+    <Border Background="#585659" CornerRadius="0 0 20 20">
+        <Grid Margin="50 10 50 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel>
-            <TextBlock Grid.Row="0" Text="{Binding Title}"/>
-        </StackPanel>
-    </Grid>
+            <TextBlock Grid.Row="0" 
+                       Text="{Binding HeadLine, FallbackValue=Add Contact to List}"
+                       Style="{StaticResource HeadlineText}"/>
+
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Title"/>
+                <TextBox />
+            </StackPanel>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" 
+                        Command="{Binding AddCommand}"
+                        Content="+ SAVE CONTACT" Style="{StaticResource StandardButton}" 
+                        Margin="0 0 5 0"/>
+                <Button Grid.Column="1" 
+                        Command="{Binding CancelCommand}"
+                        Content="CANCEL" 
+                        Style="{StaticResource CancelButton}" 
+                        Margin="5 0 0 0"/>
+            </Grid>
+
+
+
+        </Grid>
+    </Border>
 </UserControl>
