@@ -19,12 +19,70 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" 
-                       Text="{Binding HeadLine, FallbackValue=Add Contact to List}"
+                       Text="New Contact"
                        Style="{StaticResource HeadlineText}"/>
 
-            <StackPanel Grid.Row="1">
-                <TextBlock Text="Title"/>
-                <TextBox />
+            <StackPanel Grid.Row="1" Margin="0 20 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.Column="0" Margin=" 0 0 10 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="First Name"/>
+                        <TextBox Grid.Row="1" Padding="4"/>
+                    </Grid>
+                    
+                    <Grid Grid.Column="1" Margin=" 10 0 0 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Last Name"/>
+                        <TextBox Grid.Row="1" Padding="4"/>
+                    </Grid>
+
+                </Grid>
+                
+                
+                <TextBlock Text="Phone Number"/>
+                <TextBox Margin=" 0 0 0 10" Padding="4"/>
+
+                <TextBlock Text="Email"/>
+                <TextBox Margin=" 0 0 0 10" Padding="4"/>
+
+                <TextBlock Text="Street Address"/>
+                <TextBox Margin=" 0 0 0 10" Padding="4"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Margin=" 0 0 10 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Postal Code"/>
+                        <TextBox Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Margin=" 10 0 0 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="City"/>
+                        <TextBox Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
+                    </Grid>
+                </Grid>
             </StackPanel>
 
             <Grid Grid.Row="2">
@@ -37,7 +95,7 @@
                         Content="+ SAVE CONTACT" Style="{StaticResource StandardButton}" 
                         Margin="0 0 5 0"/>
                 <Button Grid.Column="1" 
-                        Command="{Binding CancelCommand}"
+                        Command="{Binding HomeCommand}"
                         Content="CANCEL" 
                         Style="{StaticResource CancelButton}" 
                         Margin="5 0 0 0"/>

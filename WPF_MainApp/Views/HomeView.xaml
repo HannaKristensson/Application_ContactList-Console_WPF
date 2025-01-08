@@ -37,7 +37,9 @@
                         Style="{StaticResource MainButton}"
                         Command="{Binding ViewContactsCommand}"
                         Content="View Contacts"/>
-                <Button Grid.Column="2" Style="{StaticResource MainButton}" Content="Edit Contact" />
+                <Button Grid.Column="2" 
+                        Style="{StaticResource MainButton}" 
+                        Content="Edit Contact" />
             </Grid>
 
 

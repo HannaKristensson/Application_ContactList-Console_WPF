@@ -20,7 +20,9 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="Bold" />
+            <TextBlock Text="{Binding Title}"
+                       Style="{StaticResource HeadlineText}"
+                       >Contact List</TextBlock>
         </Grid>
 
         <ListView Background="#84C6C5" Grid.Row="1" Margin="20 40 20 20" ItemsSource="{Binding ContactModel}" HorizontalContentAlignment="Stretch">
@@ -33,7 +35,7 @@
                         </Grid.ColumnDefinitions>
                         
                         <StackPanel Grid.Column="0">
-                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text="{Binding FirstName}"/>
                             <TextBlock Text="{Binding Email}"/>
                         </StackPanel>
 
@@ -44,13 +46,14 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid Grid.Row="2" >
+        <Grid Grid.Row="2"
+              Margin="0 0 20 20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="1" 
-                        Command="{Binding CancelCommand}"
+                        Command="{Binding HomeCommand}"
                         Content="CANCEL" 
                         Style="{StaticResource CancelButton}" 
                         Margin="5 0 0 0"/>
