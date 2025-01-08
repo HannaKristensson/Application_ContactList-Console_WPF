@@ -9,6 +9,7 @@
              xmlns:viewmodels="clr-namespace:WPF_MainApp.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:AddContactsViewModel}"
              
+             Style="{StaticResource DefaultText}"
             d:DesignHeight="535" d:DesignWidth="770">
     <Border Background="#585659" CornerRadius="0 0 20 20">
         <Grid Margin="50 10 50 20">
@@ -20,7 +21,8 @@
 
             <TextBlock Grid.Row="0" 
                        Text="New Contact"
-                       Style="{StaticResource HeadlineText}"/>
+                       Style="{StaticResource HeadlineText}"
+            />
 
             <StackPanel Grid.Row="1" Margin="0 20 0 0">
                 <Grid>
@@ -35,7 +37,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="First Name"/>
-                        <TextBox Grid.Row="1" Padding="4"/>
+                        <TextBox Text="{Binding Contact.FirstName}" Grid.Row="1" Padding="4"/>
                     </Grid>
                     
                     <Grid Grid.Column="1" Margin=" 10 0 0 10">
@@ -44,20 +46,20 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="Last Name"/>
-                        <TextBox Grid.Row="1" Padding="4"/>
+                        <TextBox Text="{Binding Contact.LastName}" Grid.Row="1" Padding="4"/>
                     </Grid>
 
                 </Grid>
                 
                 
                 <TextBlock Text="Phone Number"/>
-                <TextBox Margin=" 0 0 0 10" Padding="4"/>
+                <TextBox Text="{Binding Contact.Phone}" Margin=" 0 0 0 10" Padding="4"/>
 
                 <TextBlock Text="Email"/>
-                <TextBox Margin=" 0 0 0 10" Padding="4"/>
+                <TextBox Text="{Binding Contact.Email}" Margin=" 0 0 0 10" Padding="4"/>
 
                 <TextBlock Text="Street Address"/>
-                <TextBox Margin=" 0 0 0 10" Padding="4"/>
+                <TextBox Text="{Binding Contact.StreetAddress}" Margin=" 0 0 0 10" Padding="4"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -71,7 +73,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="Postal Code"/>
-                        <TextBox Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
+                        <TextBox Text="{Binding Contact.PostalCode}" Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
                     </Grid>
 
                     <Grid Grid.Column="1" Margin=" 10 0 0 10">
@@ -80,9 +82,10 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="City"/>
-                        <TextBox Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
+                        <TextBox Text="{Binding Contact.City}" Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
                     </Grid>
                 </Grid>
+                <TextBlock x:Name="ResultText" Text="  "/>
             </StackPanel>
 
             <Grid Grid.Row="2">
@@ -91,7 +94,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" 
-                        Command="{Binding AddCommand}"
+                        Command="{Binding SaveCommand}"
                         Content="+ SAVE CONTACT" Style="{StaticResource StandardButton}" 
                         Margin="0 0 5 0"/>
                 <Button Grid.Column="1" 

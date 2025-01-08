@@ -10,7 +10,7 @@
              
              Background="Transparent"
              mc:Ignorable="d" 
-             Style="{StaticResource MainText}"
+             Style="{StaticResource DefaultText}"
              d:DesignHeight="535" d:DesignWidth="770">
     <Border Background="#585659" CornerRadius="0 0 20 20">
     <Grid>

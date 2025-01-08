@@ -10,53 +10,53 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}"
              
              mc:Ignorable="d" 
-             Background="#585659"
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+            d:DesignHeight="535" d:DesignWidth="770">
+    <Border Background="#585659" CornerRadius="0 0 20 20">
+        <Grid Margin="50 10 50 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <TextBlock Text="{Binding Title}"
-                       Style="{StaticResource HeadlineText}"
-                       >Contact List</TextBlock>
-        </Grid>
+            <TextBlock Grid.Row="0" 
+                    Text="Contact List"
+                    Style="{StaticResource HeadlineText}"
+             />
 
-        <ListView Background="#84C6C5" Grid.Row="1" Margin="20 40 20 20" ItemsSource="{Binding ContactModel}" HorizontalContentAlignment="Stretch">
-            <ListView.ItemTemplate>
-                <DataTemplate DataType="models:ContactModel">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        
-                        <StackPanel Grid.Column="0">
-                            <TextBlock Text="{Binding FirstName}"/>
-                            <TextBlock Text="{Binding Email}"/>
-                        </StackPanel>
+                <ListView Background="#84C6C5" Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="models:ContactModel">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="1" Orientation="Horizontal"></StackPanel>
-                        
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="{Binding FirstName}"/>
+                                <TextBlock Text="{Binding Email}"/>
+                            </StackPanel>
 
-        <Grid Grid.Row="2"
-              Margin="0 0 20 20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" 
+                            <StackPanel Grid.Column="1" Orientation="Horizontal"></StackPanel>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Grid.Row="2"
+              Margin="0 20 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" 
                         Command="{Binding HomeCommand}"
                         Content="CANCEL" 
                         Style="{StaticResource CancelButton}" 
                         Margin="5 0 0 0"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </UserControl>

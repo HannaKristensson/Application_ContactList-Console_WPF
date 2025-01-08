@@ -9,13 +9,24 @@ using System.Collections.ObjectModel;
 
 namespace WPF_MainApp.ViewModels;
 
-public partial class ContactsViewModel(IContactService contactService, IServiceProvider serviceProvider) : ObservableObject
+public partial class ContactsViewModel : ObservableObject
 {
-    private readonly IServiceProvider _serviceProvider = serviceProvider;
-    private readonly IContactService _contactService = contactService;
+    private readonly IServiceProvider _serviceProvider;
+    private readonly IContactService _contactService;
+    private readonly IFileService _fileService;
+
+    public ContactsViewModel(IServiceProvider serviceProvider, IContactService contactService, IFileService fileService)
+    {
+        _serviceProvider = serviceProvider;
+        _contactService = contactService;
+        _fileService = fileService;
+
+        _contacts = new ObservableCollection<ContactModel>(_contactService.GetContacts());
+    }
+
 
     [ObservableProperty]
-    private ObservableCollection<ContactModel> _contactModel = [];
+    private ObservableCollection<ContactModel> _contacts = [];
 
 
 

@@ -14,7 +14,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        Style="{StaticResource MainText}"
+        Style="{StaticResource DefaultText}"
         Title="MainWindow" Height="600" Width="800">
     <Border Background="#454346" CornerRadius="25">
         <Grid Margin="15,0,0,15" HorizontalAlignment="Left" Width="770">
