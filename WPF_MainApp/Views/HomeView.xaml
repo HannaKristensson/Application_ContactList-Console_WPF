@@ -8,14 +8,53 @@
              xmlns:viewmodels="clr-namespace:WPF_MainApp.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
              
-             Background="#585659"
+             Background="Transparent"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Style="{StaticResource MainText}"
+             d:DesignHeight="535" d:DesignWidth="770">
+    <Border Background="#585659" CornerRadius="0 0 20 20">
     <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource TitleText}">Contact List</TextBlock>
+
+            <Grid Grid.Row="1" Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                        Style="{StaticResource MainButton}" 
+                        Command="{Binding AddNewContactCommand}"
+                        Content="ADD CONTACT" />
+                <Button Grid.Column="1"
+                        Style="{StaticResource MainButton}"
+                        Command="{Binding ViewContactsCommand}"
+                        Content="View Contacts"/>
+                <Button Grid.Column="2" Style="{StaticResource MainButton}" Content="Edit Contact" />
+            </Grid>
+
+
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="100" VerticalAlignment="Bottom" >
+
+                <!--  <TextBlock Style="{StaticResource TitleText}" Text="hej hejh jehjeh ejhejeh e"/> -->
+                <Image Width="770"  Source="../Resourses/Images/home.jpg" HorizontalAlignment="Center" />
+            </StackPanel>
+        <!--  
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+
+
+        
 
         <StackPanel Grid.Row="0">
             <TextBlock Text="{Binding Title}"/>
@@ -26,7 +65,8 @@
         <StackPanel Grid.Row="2">
             <Button Padding="8" Content="View Contacts" Command="{Binding ViewContactsCommand}"/>
         </StackPanel>
-
+-->
         
     </Grid>
+    </Border>
 </UserControl>

@@ -11,23 +11,24 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:WPF_MainApp"
         mc:Ignorable="d"
+        WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
+        Style="{StaticResource MainText}"
         Title="MainWindow" Height="600" Width="800">
     <Border Background="#454346" CornerRadius="25">
-        <Grid Margin="15">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+        <Grid Margin="15,0,0,15" HorizontalAlignment="Left" Width="770">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             
-            
-            
-        <Image Grid.Row="2" Width="auto" Height="200" Source="Images/home.jpg" />
+            <Grid Grid.Row="0" x:Name="TopBar" Background="Transparent" MouseDown="TopBar_MouseDown">
+                <Button Style="{StaticResource ExitButton}"
+                        Click="ExitButton_Click"/>
+            </Grid>
 
-
-        <ContentControl Content="{Binding CurrentViewModel}">
+            <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                     <views:HomeView/>
@@ -37,11 +38,10 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:AddContactsViewModel}">
                         <views:AddContactView/>
-                </DataTemplate>
-
-                
+                </DataTemplate>           
             </ContentControl.Resources>
         </ContentControl>
-    </Grid>
+
+        </Grid>
     </Border>
 </Window>
