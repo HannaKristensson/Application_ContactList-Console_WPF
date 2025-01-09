@@ -30,7 +30,6 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
         Console.WriteLine("_____ Main Menu _____");
         Console.WriteLine($"{"1.",-2} Add contact");
         Console.WriteLine($"{"2.",-2} View all contacts");
-        Console.WriteLine($"{"3.",-2} Edit contact");
         Console.WriteLine($"{"Q.",-2} Quit");
         Console.Write("Choose your menu option: ");
         var option = Console.ReadLine()!;
@@ -46,9 +45,6 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
                 break;
             case "2":
                 ViewOption();
-                break;
-            case "3":
-                EditOption();
                 break;
             default:
                 Console.WriteLine("Invalid option");
@@ -139,44 +135,44 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
 
 
 
-    private void EditOption()
-    {
-        Console.Clear();
-        Console.WriteLine("___ Edit Contact ___");
-        Console.WriteLine($"{"1.",-2} Edit contact");
-        Console.WriteLine($"{"2.",-2} Delete contact");
-        Console.WriteLine($"{"3.",-2} Return to main menu");
-        var option = Console.ReadLine()!;
-        Console.WriteLine("");
+    //private void EditOption()
+    //{
+    //    Console.Clear();
+    //    Console.WriteLine("___ Edit Contact ___");
+    //    Console.WriteLine($"{"1.",-2} Edit contact");
+    //    Console.WriteLine($"{"2.",-2} Delete contact");
+    //    Console.WriteLine($"{"3.",-2} Return to main menu");
+    //    var option = Console.ReadLine()!;
+    //    Console.WriteLine("");
 
-        switch (option.ToLower())
-        {
-            case "1":
-                EditContact();
-                break;
-            case "2":
-                DeleteContact();
-                break;
-            case "3":
-                break;
-            default:
-                Console.WriteLine("Invalid option");
-                Console.ReadKey();
-                break;
-        }
+    //    switch (option.ToLower())
+    //    {
+    //        case "1":
+    //            EditContact();
+    //            break;
+    //        case "2":
+    //            DeleteContact();
+    //            break;
+    //        case "3":
+    //            break;
+    //        default:
+    //            Console.WriteLine("Invalid option");
+    //            Console.ReadKey();
+    //            break;
+    //    }
 
-        void EditContact()
-        {
-            Console.WriteLine("edit");
-            Console.ReadKey();
-        }
+    //    void EditContact()
+    //    {
+    //        Console.WriteLine("edit");
+    //        Console.ReadKey();
+    //    }
 
-        void DeleteContact()
-        {
-            Console.WriteLine("delete");
-            Console.ReadKey();
-        }
-    }
+    //    void DeleteContact()
+    //    {
+    //        Console.WriteLine("delete");
+    //        Console.ReadKey();
+    //    }
+    //}
 }
 
 

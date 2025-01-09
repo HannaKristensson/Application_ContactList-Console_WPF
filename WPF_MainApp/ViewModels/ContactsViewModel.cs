@@ -1,5 +1,4 @@
-﻿
-using Buisness.Interfaces;
+﻿using Buisness.Interfaces;
 using Buisness.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;

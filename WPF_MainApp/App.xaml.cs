@@ -25,8 +25,8 @@ public partial class App : Application
                 services.AddSingleton<MainViewModel>();
                 services.AddSingleton<MainWindow>();
 
-                services.AddSingleton<HomeView>();
-                services.AddSingleton<HomeViewModel>();
+                services.AddTransient<HomeView>();
+                services.AddTransient<HomeViewModel>();
 
                 services.AddTransient<ContactsViewModel>();
                 services.AddTransient<ContactsView>();
