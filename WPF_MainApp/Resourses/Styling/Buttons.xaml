@@ -10,8 +10,8 @@
         <Setter Property="Content" Value="&#xe711;"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Medium"/>
-        <Setter Property="Background" Value="#495E5D"/>
-        <Setter Property="Foreground" Value="#F5F1B9"/>
+        <Setter Property="Background" Value="#57706F"/>
+        <Setter Property="Foreground" Value="#F7F1CF"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -85,10 +85,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonBorder" Property="Background" Value="#54A6A6"/>
+                            <Setter TargetName="ButtonBorder" Property="Background" Value="#71A8A7"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="ButtonBorder" Property="Background" Value="#FFF198"/>
+                            <Setter TargetName="ButtonBorder" Property="Background" Value="#57706F"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

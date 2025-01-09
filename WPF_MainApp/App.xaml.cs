@@ -19,8 +19,8 @@ public partial class App : Application
         _host = Host.CreateDefaultBuilder()
             .ConfigureServices(services =>
             {
-                services.AddTransient<IContactService, ContactService>();
-                services.AddTransient<IFileService, FileService>();
+                services.AddSingleton<IContactService, ContactService>();
+                services.AddSingleton<IFileService, FileService>();
 
                 services.AddSingleton<MainViewModel>();
                 services.AddSingleton<MainWindow>();

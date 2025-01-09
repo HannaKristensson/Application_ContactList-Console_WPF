@@ -20,16 +20,18 @@
 
 
 
-    <!--
-    Color codes 
+    <!-- 
+    COLOR CODES
     
-    yellow : #FFF198
     lightyellow : #F5F1B9
-    lightgreen : #8cb6b5
-    darkgreen : #509A99
-    #384847
-    darker green : #509A99
-    #495E5D
+    yellow : #FFF198
+    
+    lightgreen : #BAF2F1
+    green : #8cb6b5
+    middlegreen : #71A8A7
+    darkgreen : #495E5D
+    darkestgreen : #49474A
+    
     lightgray : 
     middlegray : #777478
     

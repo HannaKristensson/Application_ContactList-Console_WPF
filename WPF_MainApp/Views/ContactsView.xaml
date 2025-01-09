@@ -11,7 +11,7 @@
              
              mc:Ignorable="d" 
             d:DesignHeight="535" d:DesignWidth="770">
-    <Border Background="#585659" CornerRadius="0 0 20 20">
+    <Border Background="#585659" CornerRadius="0 0 5 5">
         <Grid Margin="50 10 50 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -24,21 +24,47 @@
                     Style="{StaticResource HeadlineText}"
              />
 
-            <ListView Background="#8cb6b5" Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
+            <ListView Background="#D4F7F7" Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
                         <Grid>
+                            <!--
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions> -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
                                 <TextBlock Text="{Binding FirstName}"/>
-                                <TextBlock Text="{Binding Email}"/>
+                                <TextBlock Margin="5 0" Text="{Binding LastName}"/>
+                                <TextBlock Margin="5 0" Text="{Binding Phone}"/>
+                                <TextBlock Margin="5 0" Text="{Binding Email}"/>
                             </StackPanel>
 
-                            <StackPanel Grid.Column="1" Orientation="Horizontal"></StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" >
+                                <TextBlock Text="{Binding StreetAddress}"/>
+                                <TextBlock Margin="5 0" Text="{Binding PostalCode}"/>
+                                <TextBlock Margin="5 0" Text="{Binding City}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="3" Orientation="Vertical">
+                                <Button Content="&#xe70f;" FontFamily="Segoe Fluent Icons" Padding="10 10" Background="Transparent"/>
+                            </StackPanel>
 
                         </Grid>
                     </DataTemplate>
