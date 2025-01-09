@@ -16,15 +16,15 @@
         Background="Transparent"
         Style="{StaticResource DefaultText}"
         Title="MainWindow" Height="600" Width="800">
-    <Border Background="#454346" CornerRadius="25">
-        <Grid Margin="15,0,0,15" HorizontalAlignment="Left" Width="770">
+    <Border Style="{StaticResource Topbarbgd}" CornerRadius="4">
+        <Grid  HorizontalAlignment="Left" Width="800">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="31"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0" x:Name="TopBar" Background="Transparent" MouseDown="TopBar_MouseDown">
-                <Button Style="{StaticResource ExitButton}"
+                <Button Style="{StaticResource QuitButton}" 
                         Click="ExitButton_Click"/>
             </Grid>
 

@@ -3,7 +3,6 @@ using Buisness.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
-using System.Windows.Controls;
 
 namespace WPF_MainApp.ViewModels;
 
@@ -12,8 +11,6 @@ public partial class AddContactsViewModel(IServiceProvider serviceProvider, ICon
     private readonly IServiceProvider _serviceProvider = serviceProvider;
     private readonly IContactService _contactService = contactService;
 
-    [ObservableProperty]
-    private string _title = "Add New Contact";
 
     [ObservableProperty]
     private ContactModel _contact = new();
@@ -28,7 +25,6 @@ public partial class AddContactsViewModel(IServiceProvider serviceProvider, ICon
             var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
             mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<HomeViewModel>();
         }
-
     }
 
     [RelayCommand]

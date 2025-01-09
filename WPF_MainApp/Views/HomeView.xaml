@@ -11,9 +11,9 @@
              Background="Transparent"
              mc:Ignorable="d" 
              Style="{StaticResource DefaultText}"
-             d:DesignHeight="535" d:DesignWidth="770">
-    <Border Background="#585659" CornerRadius="0 0 20 20">
-    <Grid>
+             d:DesignHeight="550" d:DesignWidth="800">
+    <Border Background="#777478" CornerRadius="0 0 5 5">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -25,28 +25,31 @@
             <Grid Grid.Row="1" Margin="15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                
+
                 <Button Grid.Column="0"
                         Style="{StaticResource MainButton}" 
                         Command="{Binding AddNewContactCommand}"
-                        Content="ADD CONTACT" />
+                        Content="ADD CONTACT" 
+                        Margin="0 0 10 0" />
                 <Button Grid.Column="1"
                         Style="{StaticResource MainButton}"
                         Command="{Binding ViewContactsCommand}"
-                        Content="View Contacts"/>
+                        Content="View Contacts"
+                        Margin="10 0 10 0" />
                 <Button Grid.Column="2" 
                         Style="{StaticResource MainButton}" 
-                        Content="Edit Contact" />
+                        Content="Edit Contact" 
+                        Margin="10 0 0 0" />
             </Grid>
 
 
             <StackPanel Grid.Row="2" Grid.ColumnSpan="100" VerticalAlignment="Bottom" >
 
                 <!--  <TextBlock Style="{StaticResource TitleText}" Text="hej hejh jehjeh ejhejeh e"/> -->
-                <Image Width="770"  Source="../Resourses/Images/home.jpg" HorizontalAlignment="Center" />
+                <Image Width="800"  Source="../Resourses/Images/home2.jpg" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>
     </Border>

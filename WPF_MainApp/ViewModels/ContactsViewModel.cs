@@ -1,7 +1,6 @@
 ﻿
 using Buisness.Interfaces;
 using Buisness.Models;
-using Buisness.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,13 +12,11 @@ public partial class ContactsViewModel : ObservableObject
 {
     private readonly IServiceProvider _serviceProvider;
     private readonly IContactService _contactService;
-    private readonly IFileService _fileService;
 
-    public ContactsViewModel(IServiceProvider serviceProvider, IContactService contactService, IFileService fileService)
+    public ContactsViewModel(IServiceProvider serviceProvider, IContactService contactService)
     {
         _serviceProvider = serviceProvider;
         _contactService = contactService;
-        _fileService = fileService;
 
         _contacts = new ObservableCollection<ContactModel>(_contactService.GetContacts());
     }
@@ -29,11 +26,6 @@ public partial class ContactsViewModel : ObservableObject
     private ObservableCollection<ContactModel> _contacts = [];
 
 
-
-    //public ContactsViewModel(IServiceProvider serviceProvider)
-    //{
-    //    _serviceProvider = serviceProvider;
-    //}
 
     //[ObservableProperty]
     ////title på sidan
