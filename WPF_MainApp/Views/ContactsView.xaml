@@ -54,7 +54,7 @@
                 <Button Grid.Column="1" 
                         Command="{Binding HomeCommand}"
                         Content="CANCEL" 
-                        Style="{StaticResource CancelButton}" 
+                        Style="{StaticResource MainButton}" 
                         Margin="5 0 0 0"/>
             </Grid>
         </Grid>

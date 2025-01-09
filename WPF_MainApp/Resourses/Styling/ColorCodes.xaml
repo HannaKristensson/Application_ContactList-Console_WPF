@@ -5,20 +5,33 @@
 
     <!-- Topbar background -->
     <Style x:Key="Topbarbgd" TargetType="Border">
-        <Setter Property="Background" Value="#94DBDB" />
+        <Setter Property="Background" Value="#8cb6b5" />
     </Style>
 
+    <!-- Main background -->
+    <Style x:Key="Mainbgd" TargetType="Border">
+        <Setter Property="Background" Value="#585559" />
+    </Style>
+    
+    
 
-    
-    
+
+
+
+
+
     <!--
     Color codes 
     
     yellow : #FFF198
-    lightyellow : #F7F1CF
-    lightgreen : #94DBDB
+    lightyellow : #F5F1B9
+    lightgreen : #8cb6b5
     darkgreen : #509A99
-    gray : 
+    #384847
+    darker green : #509A99
+    #495E5D
+    lightgray : 
+    middlegray : #777478
     
     
     

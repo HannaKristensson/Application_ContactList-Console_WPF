@@ -24,6 +24,7 @@
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0" x:Name="TopBar" Background="Transparent" MouseDown="TopBar_MouseDown">
+                <TextBlock Padding=" 20 5" FontWeight="bold" FontFamily="Corbel" Foreground="#49474A" >CONTACTLIST CREATOR</TextBlock>
                 <Button Style="{StaticResource QuitButton}" 
                         Click="ExitButton_Click"/>
             </Grid>

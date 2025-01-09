@@ -10,9 +10,9 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:AddContactsViewModel}"
              
              Style="{StaticResource DefaultText}"
-            d:DesignHeight="535" d:DesignWidth="770">
-    <Border Background="#585659" CornerRadius="0 0 20 20">
-        <Grid Margin="50 10 50 20">
+            d:DesignHeight="535" d:DesignWidth="800">
+    <Border Style="{StaticResource Mainbgd}" CornerRadius="0 0 5 5">
+        <Grid Margin="50 10 50 10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -95,12 +95,12 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" 
                         Command="{Binding SaveCommand}"
-                        Content="+ SAVE CONTACT" Style="{StaticResource StandardButton}" 
+                        Content="+ SAVE CONTACT" Style="{StaticResource SecondaryButton}" 
                         Margin="0 0 5 0"/>
                 <Button Grid.Column="1" 
                         Command="{Binding HomeCommand}"
                         Content="CANCEL" 
-                        Style="{StaticResource CancelButton}" 
+                        Style="{StaticResource MainButton}" 
                         Margin="5 0 0 0"/>
             </Grid>
 

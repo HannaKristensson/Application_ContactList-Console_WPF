@@ -12,17 +12,24 @@
              mc:Ignorable="d" 
              Style="{StaticResource DefaultText}"
              d:DesignHeight="550" d:DesignWidth="800">
-    <Border Background="#777478" CornerRadius="0 0 5 5">
+    <Border Style="{StaticResource Mainbgd}" CornerRadius="0 0 5 5">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="150"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Style="{StaticResource TitleText}">Contact List</TextBlock>
+            <StackPanel Grid.Row="0" Margin="60 15" Background="#575759" >
+              <TextBlock Style="{StaticResource TitleText}" >CONTACTLIST CREATOR</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="16">
+                    Welcome here! Here you can create and edit your very own contact list with an</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="16">
+                    unlimited number of contacts. Start exploring now!</TextBlock>
+            </StackPanel>
+            
 
-            <Grid Grid.Row="1" Margin="15">
+            <Grid Grid.Row="1" Margin="10" VerticalAlignment="Bottom" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*"/>
@@ -30,26 +37,24 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0"
-                        Style="{StaticResource MainButton}" 
+                        Style="{StaticResource MainButton}"
                         Command="{Binding AddNewContactCommand}"
                         Content="ADD CONTACT" 
-                        Margin="0 0 10 0" />
+                        Margin="0 0 5 0" />
                 <Button Grid.Column="1"
                         Style="{StaticResource MainButton}"
                         Command="{Binding ViewContactsCommand}"
-                        Content="View Contacts"
-                        Margin="10 0 10 0" />
+                        Content="VIEW CONTACTS"
+                        Margin="5 0 5 0" />
                 <Button Grid.Column="2" 
                         Style="{StaticResource MainButton}" 
-                        Content="Edit Contact" 
-                        Margin="10 0 0 0" />
+                        Content="EDIT CONTACT" 
+                        Margin="5 0 0 0" />
             </Grid>
 
 
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="100" VerticalAlignment="Bottom" >
-
-                <!--  <TextBlock Style="{StaticResource TitleText}" Text="hej hejh jehjeh ejhejeh e"/> -->
-                <Image Width="800"  Source="../Resourses/Images/home2.jpg" HorizontalAlignment="Center" />
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="100" VerticalAlignment="Bottom" Margin="0 0 0 10" >
+                <Image Width="780"  Source="../Resourses/Images/home2.jpg" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>
     </Border>
