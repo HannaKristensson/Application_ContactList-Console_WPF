@@ -65,4 +65,34 @@ public class ContactService(IFileService fileService) : IContactService
 
         return _contactList;
     }
+
+
+    //Update contact:
+    // Method below is created with help of ChatGTP. My biggest struggle was how to save the info back info the json file, which line 87-88 finally solved for me. 
+    public bool UpdateContact(ContactModel selectedContact)
+    {
+
+            var contact = _contactList.FirstOrDefault(c => c.Id == selectedContact.Id);
+
+            if (contact != null)
+            {
+                contact.FirstName = selectedContact.FirstName;
+                contact.LastName = selectedContact.LastName;
+                contact.Email = selectedContact.Email;
+                contact.Phone = selectedContact.Phone;
+                contact.StreetAddress = selectedContact.StreetAddress;
+                contact.PostalCode = selectedContact.PostalCode;
+                contact.City = selectedContact.City;
+
+                var json = JsonSerializer.Serialize(_contactList);
+                bool result = _fileService.SaveListToFile(json);
+
+                return true;
+            }
+        else
+        {
+            return false;
+        }
+    }
+
 }

@@ -6,5 +6,7 @@ namespace Buisness.Interfaces
     {
         bool CreateContact(ContactModel contact);
         IEnumerable<ContactModel> GetContacts();
+        //ContactModel GetContactById(string id);
+        bool UpdateContact(ContactModel updatedContact);
     }
 }
