@@ -34,6 +34,9 @@ public partial class App : Application
                 services.AddTransient<AddContactsViewModel>();
                 services.AddTransient<AddContactView>();
 
+                services.AddTransient<EditContactViewModel>();
+                services.AddTransient<EditContactView>();
+
             })
             .Build();
     }

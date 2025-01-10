@@ -63,7 +63,7 @@
                             </StackPanel>
 
                             <StackPanel Grid.Row="3" Orientation="Vertical">
-                                <Button Content="&#xe70f;" FontFamily="Segoe Fluent Icons" Padding="10 10" Background="Transparent"/>
+                                <Button Command="{Binding GoToEditCommand}" Content="&#xe70f;" FontFamily="Segoe Fluent Icons" Padding="10 10" Background="Transparent"/>
                             </StackPanel>
 
                         </Grid>

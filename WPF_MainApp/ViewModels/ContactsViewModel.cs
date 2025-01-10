@@ -25,10 +25,12 @@ public partial class ContactsViewModel : ObservableObject
     private ObservableCollection<ContactModel> _contacts = [];
 
 
-
-    //[ObservableProperty]
-    ////title på sidan
-    //private string _title = "Contacts";
+    [RelayCommand]
+    private void GoToEdit()
+    { 
+        var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<EditContactViewModel>();
+    }
 
     [RelayCommand]
     private void Home()
