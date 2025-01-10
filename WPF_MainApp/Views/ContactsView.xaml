@@ -10,8 +10,9 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}"
              
              mc:Ignorable="d" 
+             Style="{StaticResource DefaultText}"
             d:DesignHeight="535" d:DesignWidth="770">
-    <Border Background="#585659" CornerRadius="0 0 5 5">
+    <Border Style="{StaticResource Mainbgd}" CornerRadius="0 0 5 5">
         <Grid Margin="50 10 50 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -28,13 +29,6 @@
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
                         <Grid>
-                            <!--
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions> -->
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
@@ -63,7 +57,7 @@
                             </StackPanel>
 
                             <StackPanel Grid.Row="3" Orientation="Vertical">
-                                <Button Command="{Binding GoToEditCommand}" Content="&#xe70f;" FontFamily="Segoe Fluent Icons" Padding="10 10" Background="Transparent"/>
+                                <Button CommandParameter="{Binding .}" Command="{Binding DataContext.ContactDetailsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" Content="&#xe70f;" FontFamily="Segoe Fluent Icons" Padding="10 10" Background="Transparent"/>
                             </StackPanel>
 
                         </Grid>

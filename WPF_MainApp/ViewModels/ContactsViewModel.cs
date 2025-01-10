@@ -26,10 +26,14 @@ public partial class ContactsViewModel : ObservableObject
 
 
     [RelayCommand]
-    private void GoToEdit()
+    private void ContactDetails(ContactModel contact)
     { 
+        var ContactDetailsViewModel = _serviceProvider.GetRequiredService<ContactDetailsViewModel>();
+        ContactDetailsViewModel.Contact = contact;
+
+
         var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<EditContactViewModel>();
+        mainViewModel.CurrentViewModel = ContactDetailsViewModel;
     }
 
     [RelayCommand]

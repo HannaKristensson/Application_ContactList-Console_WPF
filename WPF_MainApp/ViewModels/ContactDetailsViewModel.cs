@@ -3,18 +3,17 @@ using Buisness.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
+using System.Security.RightsManagement;
 
 namespace WPF_MainApp.ViewModels;
 
-public partial class EditContactViewModel : ObservableObject
+public partial class ContactDetailsViewModel : ObservableObject
 {
     private readonly IServiceProvider _serviceProvider;
-    private readonly IContactService _contactService;
 
-    public EditContactViewModel(IServiceProvider serviceProvider, IContactService contactService)
+    public ContactDetailsViewModel(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
-        _contactService = contactService;
     }
 
     [ObservableProperty]
@@ -22,15 +21,13 @@ public partial class EditContactViewModel : ObservableObject
 
 
     [RelayCommand]
-    private void UpdateUser()
+    private void EditContact()
     {
-        //var result = _contactService.UpdateUser(User);
-        //if (result)
-        {
-            //TextBlock = "it worked";
-            var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-            mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<HomeViewModel>();
-        }
+        var editContactViewModel = _serviceProvider.GetService<EditContactViewModel>();
+        editContactViewModel.Contact = Contact;
+
+        var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = editContactViewModel;
     }
 
     [RelayCommand]
@@ -40,3 +37,5 @@ public partial class EditContactViewModel : ObservableObject
         mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ContactsViewModel>();
     }
 }
+
+
