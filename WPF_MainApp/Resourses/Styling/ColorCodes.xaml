@@ -23,7 +23,7 @@
         <Setter Property="Background" Value="#B0BFBE" />
         <Setter Property="BorderBrush" Value="#878787" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="10" />
+        
         <!-- 
         <Setter Property="Template">
             <Setter.Value>
@@ -40,6 +40,12 @@
     </Style>
 
     <Style x:Key="ListboxBgd" TargetType="ListView">
+        <Setter Property="Background" Value="#B0BFBE" />
+        <Setter Property="BorderBrush" Value="#878787" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="BorderBgd" TargetType="Border">
         <Setter Property="Background" Value="#B0BFBE" />
         <Setter Property="BorderBrush" Value="#878787" />
         <Setter Property="BorderThickness" Value="1" />

@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Resourses/Styling/Buttons.xaml" />
                 <ResourceDictionary Source="Resourses/Styling/Typography.xaml" />
                 <ResourceDictionary Source="Resourses/Styling/ColorCodes.xaml" />
+                <ResourceDictionary Source="Resourses/Styling/Icons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

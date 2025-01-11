@@ -13,7 +13,7 @@
              Style="{StaticResource DefaultText}"
             d:DesignHeight="535" d:DesignWidth="770">
     <Border Style="{StaticResource Mainbgd}" CornerRadius="0 0 5 5">
-        <Grid Margin="50 10 50 20">
+        <Grid Margin="50 10 50 30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
@@ -24,44 +24,27 @@
                     Text="Contact List"
                     Style="{StaticResource HeadlineText}"
              />
-            
 
-            <ListView Style="{StaticResource ListboxBgd}" Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
+
+            <ListView Style="{StaticResource ListboxBgd}" Foreground="White" FontSize="26" FontWeight="Regular"  Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
+                        <Border BorderBrush="#878787" BorderThickness="1" Padding="20 10 10 10" Margin="2">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" >
+                                    <TextBlock Text="{Binding FirstName}" />
+                                    <TextBlock Margin="10 0 5 0" Text="{Binding LastName}"/>
+                                    <TextBlock Text=","/>
+                                    <TextBlock Margin="20 0" Text="{Binding City}"/>
+                                </StackPanel>
 
-                            <StackPanel Grid.Row="0" Orientation="Horizontal">
-                                <TextBlock Text="{Binding FirstName}"/>
-                                <TextBlock Margin="5 0" Text="{Binding LastName}"/>
-                                <TextBlock Margin="5 0" Text="{Binding Phone}"/>
-                                <TextBlock Margin="5 0" Text="{Binding Email}"/>
-                            </StackPanel>
-
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" >
-                                <TextBlock Text="{Binding StreetAddress}"/>
-                                <TextBlock Margin="5 0" Text="{Binding PostalCode}"/>
-                                <TextBlock Margin="5 0" Text="{Binding City}"/>
-                            </StackPanel>
-
-                            <StackPanel Grid.Row="3" Orientation="Vertical">
-                                <Button CommandParameter="{Binding .}" Command="{Binding DataContext.ContactDetailsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" Content="&#xe70f;" FontFamily="Segoe Fluent Icons" Padding="10 10" Background="Transparent"/>
+                                <StackPanel Grid.Row="0" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Right">
+                                    <Button Style="{StaticResource ListButton}" CommandParameter="{Binding .}" Command="{Binding DataContext.ContactDetailsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" Content="&#xe712;" FontFamily="Segoe Fluent Icons"/>
                             </StackPanel>
 
                         </Grid>
+                        </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

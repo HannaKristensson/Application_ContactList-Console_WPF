@@ -10,9 +10,10 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:AddContactsViewModel}"
              
              Style="{StaticResource DefaultText}"
+             FontWeight="Regular"
             d:DesignHeight="535" d:DesignWidth="800">
     <Border Style="{StaticResource Mainbgd}" CornerRadius="0 0 5 5">
-        <Grid Margin="50 10 50 10">
+        <Grid Margin="50 10 50 30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -23,9 +24,11 @@
                        Text="New Contact"
                        Style="{StaticResource HeadlineText}"
             />
-
-            <StackPanel Grid.Row="1" Margin="0 20 0 0">
+            <Border Grid.Row="1" Style="{StaticResource BorderBgd}" Margin="0 0 0 30" Padding="10">
+            <StackPanel  Margin="0 20 0 0" >
                 <Grid>
+                    
+                
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -87,6 +90,8 @@
                 </Grid>
                 <TextBlock x:Name="ResultText" Text="  "/>
             </StackPanel>
+            </Border>
+                
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>

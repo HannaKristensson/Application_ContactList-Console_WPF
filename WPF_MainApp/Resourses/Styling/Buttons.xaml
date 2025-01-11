@@ -55,14 +55,13 @@
 
     <!-- Main Button -->
     <Style x:Key="MainButton" TargetType="Button">
-        
         <Setter Property="Height" Value="35"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Background" Value="#8cb6b5"/>
         <Setter Property="FontFamily" Value="Corbel"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Foreground" Value="white"/>
+        <Setter Property="Foreground" Value="#49474A"/>
         <Setter Property="BorderBrush" Value="#878787"/>
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
@@ -109,6 +108,8 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Foreground" Value="#49474A"/>
+        <Setter Property="BorderBrush" Value="#878787"/>
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -116,7 +117,8 @@
                         Height="{TemplateBinding Height}"
                         Width="{TemplateBinding Width}"
                         Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
                         Padding="{TemplateBinding Padding}"
                         CornerRadius="4"
                     >
@@ -151,6 +153,8 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Foreground" Value="#49474A"/>
+        <Setter Property="BorderBrush" Value="#878787"/>
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -158,7 +162,8 @@
                         Height="{TemplateBinding Height}"
                         Width="{TemplateBinding Width}"
                         Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
                         Padding="{TemplateBinding Padding}"
                         CornerRadius="4"
                     >
@@ -184,7 +189,51 @@
         </Setter>
     </Style>
 
-
+    <!-- List Button -->
+    <Style x:Key="ListButton" TargetType="Button">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="#8cb6b5"/>
+        <Setter Property="FontFamily" Value="Corbel"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="#49474A"/>
+        <Setter Property="BorderBrush" Value="#878787"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="ButtonBorder"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Padding="{TemplateBinding Padding}"
+                    CornerRadius="4"
+                >
+                        <TextBlock x:Name="ContentText"
+                Text="{TemplateBinding Content}"
+                FontFamily="{TemplateBinding FontFamily}"
+                FontWeight="{TemplateBinding FontWeight}"
+                FontSize="{TemplateBinding FontSize}"
+                Foreground="{TemplateBinding Foreground}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBorder" Property="Background" Value="#71A8A7"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBorder" Property="Background" Value="#57706F"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
 </ResourceDictionary>

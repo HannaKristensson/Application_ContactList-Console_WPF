@@ -13,16 +13,16 @@
              Style="{StaticResource DefaultText}"
              d:DesignHeight="550" d:DesignWidth="800">
     <Border Style="{StaticResource Mainbgd}" CornerRadius="0 0 5 5">
-        <Grid>
+        <Grid Margin="50 10 50 30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0" Style="{StaticResource BoxBgd}" Margin="100 15" >
-            <StackPanel Margin="5" >
-                    <TextBlock Style="{StaticResource TitleText}" Foreground="#495E5D" Margin="0 5" >Contactlist Creator</TextBlock>
+            <Border Grid.Row="0" Style="{StaticResource BoxBgd}" Margin="0 10 0 0" >
+            <StackPanel Margin="15" >
+                    <TextBlock Style="{StaticResource TitleText}" Margin="0 5" >Contactlist Creator</TextBlock>
                     <TextBlock TextAlignment="Center" FontSize="18" >
                     Welcome here! Here you can create and edit your very own contact list</TextBlock>
                     <TextBlock TextAlignment="Center" FontSize="18" >
@@ -31,7 +31,7 @@
             </Border>
 
 
-            <Grid Grid.Row="1" Margin="10" VerticalAlignment="Bottom" >
+            <Grid Grid.Row="1" Margin="0 15" VerticalAlignment="Bottom" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*"/>
@@ -50,7 +50,7 @@
             </Grid>
 
 
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="100" VerticalAlignment="Bottom" Margin="0 0 0 10" >
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="100" VerticalAlignment="Bottom" >
                 <Image Width="780"  Source="../Resourses/Images/home2.jpg" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>

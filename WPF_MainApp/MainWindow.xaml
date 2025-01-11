@@ -30,7 +30,7 @@
                         Click="ExitButton_Click"/>
             </Grid>
 
-            <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                     <views:HomeView/>
