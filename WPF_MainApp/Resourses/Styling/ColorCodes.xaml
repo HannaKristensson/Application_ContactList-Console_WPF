@@ -2,50 +2,39 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-
     <!-- Topbar background -->
     <Style x:Key="Topbarbgd" TargetType="Border">
         <Setter Property="Background" Value="#8cb6b5" />
-        
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="BorderBrush" Value="#C2C2C2"/>
+        <Setter Property="BorderThickness" Value="1"/>
     </Style>
 
-    <!-- Main background
-    <Style x:Key="Mainbgd" TargetType="Border">
-        <Setter Property="Background" Value="#585559" />
-    </Style> -->
-
+    
+    <!-- Main background-->
     <Style x:Key="Mainbgd" TargetType="Border">
         <Setter Property="Background" Value="#FAFAFA" />
     </Style>
+    
     
     <!-- Box background -->
     <Style x:Key="BoxBgd" TargetType="Border">
         <Setter Property="Background" Value="#B0BFBE" />
         <Setter Property="BorderBrush" Value="#878787" />
         <Setter Property="BorderThickness" Value="1" />
-        
-        <!-- 
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Border">
-                    <Border x:Name="BoxBorder" 
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            ></Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        -->
     </Style>
 
-    <Style x:Key="ListboxBgd" TargetType="ListView">
+    
+    <!-- Border background -->
+    <Style x:Key="BorderBgd" TargetType="Border">
         <Setter Property="Background" Value="#B0BFBE" />
         <Setter Property="BorderBrush" Value="#878787" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="BorderBgd" TargetType="Border">
+    
+    <!-- Listbox background -->
+    <Style x:Key="ListboxBgd" TargetType="ListView">
         <Setter Property="Background" Value="#B0BFBE" />
         <Setter Property="BorderBrush" Value="#878787" />
         <Setter Property="BorderThickness" Value="1" />
@@ -65,17 +54,11 @@
     darkgreen : #495E5D
     darkestgreen : #49474A
     
-    lightgray : 
     middlegray : #777478
     
     red : #F5C1B7
     darkred : #E0B1AB
     
-    
-    
-    
-    
     -->
-
 
 </ResourceDictionary>

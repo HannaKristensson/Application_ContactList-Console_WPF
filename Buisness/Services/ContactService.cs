@@ -7,12 +7,10 @@ using System.Text.Json;
 
 namespace Buisness.Services;
 
-
 public class ContactService(IFileService fileService) : IContactService
 {
     private readonly IFileService _fileService = fileService;
     private List<ContactModel> _contactList = [];
-
 
 
     //Create contact:
@@ -69,10 +67,9 @@ public class ContactService(IFileService fileService) : IContactService
 
 
     //Update contact:
-    // Update-method below is created with help of ChatGTP. My biggest struggle was how to save the info back info the json file, which line 87-88 finally solved for me. 
+    // Update-method below is created with help of ChatGTP. My biggest struggle was how to save the info back info the json file, which line 85-86 finally solved for me. 
     public bool UpdateContact(ContactModel selectedContact)
     {
-
             var contact = _contactList.FirstOrDefault(c => c.Id == selectedContact.Id);
 
             if (contact != null)

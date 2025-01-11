@@ -17,39 +17,52 @@
         
         Style="{StaticResource DefaultText}"
         Title="MainWindow" Height="600" Width="800">
-    <Border Style="{StaticResource Topbarbgd}" CornerRadius="4" BorderBrush="#C2C2C2" BorderThickness="1" >
+    <Border Style="{StaticResource Topbarbgd}">
         <Grid  HorizontalAlignment="Left" Width="800">
             <Grid.RowDefinitions>
                 <RowDefinition Height="31"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" x:Name="TopBar" Background="Transparent" MouseDown="TopBar_MouseDown">
-                <TextBlock Padding=" 25 5" FontWeight="bold" FontFamily="Corbel" Foreground="#49474A" >CONTACTLIST CREATOR</TextBlock>
-                <Button Style="{StaticResource QuitButton}" 
-                        Click="ExitButton_Click"/>
+            <Grid Grid.Row="0" 
+                  x:Name="TopBar" 
+                  Background="Transparent" 
+                  MouseDown="TopBar_MouseDown"
+                  >
+                <TextBlock Padding=" 25 5" 
+                           FontWeight="bold" 
+                           FontFamily="Corbel" 
+                           Foreground="#49474A" 
+                           >CONTACTLIST CREATOR</TextBlock>
+                <Button Style="{StaticResource QuitButton}"
+                        Click="ExitButton_Click" />
+                
             </Grid>
+            <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
 
-        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
-            <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-                    <views:HomeView/>
-                </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+                        <views:HomeView/>
+                    </DataTemplate>
+
                     <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
-                    <views:ContactsView/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:AddContactsViewModel}">
+                        <views:ContactsView/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewmodels:AddContactsViewModel}">
                         <views:AddContactView/>
-                </DataTemplate>
+                    </DataTemplate>
+
                     <DataTemplate DataType="{x:Type viewmodels:ContactDetailsViewModel}">
                         <views:ContactDetailsView/>
                     </DataTemplate>
+
                     <DataTemplate DataType="{x:Type viewmodels:EditContactViewModel}">
                         <views:EditContactView/>
                     </DataTemplate>
-                </ContentControl.Resources>
-        </ContentControl>
 
+                </ContentControl.Resources>
+            </ContentControl>
         </Grid>
     </Border>
 </Window>

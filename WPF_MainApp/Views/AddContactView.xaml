@@ -24,74 +24,73 @@
                        Text="New Contact"
                        Style="{StaticResource HeadlineText}"
             />
-            <Border Grid.Row="1" Style="{StaticResource BorderBgd}" Margin="0 0 0 30" Padding="10">
-            <StackPanel  Margin="0 20 0 0" >
-                <Grid>
-                    
+            
+            <Border Grid.Row="1" 
+                    Style="{StaticResource BorderBgd}" 
+                    Margin="0 0 0 30" 
+                    Padding="10">
+                <StackPanel  Margin="0 20 0 0" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+       
+                        <Grid Grid.Column="0" Margin=" 0 0 10 10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="First Name"/>
+                            <TextBox Text="{Binding Contact.FirstName}" Grid.Row="1" Padding="4"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Margin=" 10 0 0 10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Last Name"/>
+                            <TextBox Text="{Binding Contact.LastName}" Grid.Row="1" Padding="4"/>
+                        </Grid>
+                    </Grid>
                 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Grid Grid.Column="0" Margin=" 0 0 10 10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="First Name"/>
-                        <TextBox Text="{Binding Contact.FirstName}" Grid.Row="1" Padding="4"/>
+                    <TextBlock Text="Phone Number"/>
+                    <TextBox Text="{Binding Contact.Phone}" Margin=" 0 0 0 10" Padding="4"/>
+
+                    <TextBlock Text="Email"/>
+                    <TextBox Text="{Binding Contact.Email}" Margin=" 0 0 0 10" Padding="4"/>
+
+                    <TextBlock Text="Street Address"/>
+                    <TextBox Text="{Binding Contact.StreetAddress}" Margin=" 0 0 0 10" Padding="4"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" Margin=" 0 0 10 10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Postal Code"/>
+                            <TextBox Text="{Binding Contact.PostalCode}" Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Margin=" 10 0 0 10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="City"/>
+                            <TextBox Text="{Binding Contact.City}" Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
+                        </Grid>
                     </Grid>
-                    
-                    <Grid Grid.Column="1" Margin=" 10 0 0 10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="Last Name"/>
-                        <TextBox Text="{Binding Contact.LastName}" Grid.Row="1" Padding="4"/>
-                    </Grid>
-
-                </Grid>
-                
-                
-                <TextBlock Text="Phone Number"/>
-                <TextBox Text="{Binding Contact.Phone}" Margin=" 0 0 0 10" Padding="4"/>
-
-                <TextBlock Text="Email"/>
-                <TextBox Text="{Binding Contact.Email}" Margin=" 0 0 0 10" Padding="4"/>
-
-                <TextBlock Text="Street Address"/>
-                <TextBox Text="{Binding Contact.StreetAddress}" Margin=" 0 0 0 10" Padding="4"/>
-
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0" Margin=" 0 0 10 10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="Postal Code"/>
-                        <TextBox Text="{Binding Contact.PostalCode}" Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
-                    </Grid>
-
-                    <Grid Grid.Column="1" Margin=" 10 0 0 10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="City"/>
-                        <TextBox Text="{Binding Contact.City}" Grid.Row="1" Margin=" 0 0 0 10" Padding="4"/>
-                    </Grid>
-                </Grid>
-                <TextBlock x:Name="ResultText" Text="  "/>
-            </StackPanel>
+                </StackPanel>
             </Border>
-                
+
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -108,9 +107,6 @@
                         Style="{StaticResource MainButton}" 
                         Margin="5 0 0 0"/>
             </Grid>
-
-
-
         </Grid>
     </Border>
 </UserControl>

@@ -22,28 +22,42 @@
 
             <TextBlock Grid.Row="0" 
                     Text="Contact List"
-                    Style="{StaticResource HeadlineText}"
-             />
+                    Style="{StaticResource HeadlineText}"/>
 
-
-            <ListView Style="{StaticResource ListboxBgd}" Foreground="White" FontSize="26" FontWeight="Regular"  Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
+            <ListView Style="{StaticResource ListboxBgd}" 
+                      Foreground="White" 
+                      FontSize="18" 
+                      FontWeight="Regular" 
+                      Grid.Row="1" 
+                      ItemsSource="{Binding Contacts}" 
+                      HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
-                        <Border BorderBrush="#878787" BorderThickness="1" Padding="20 10 10 10" Margin="2">
-                        <Grid>
-
-                                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" >
+                        <Border BorderBrush="#878787" 
+                                BorderThickness="1" 
+                                Padding="20 10 10 10" 
+                                Margin="3 10">
+                            <Grid>
+                                <StackPanel Grid.Row="0" 
+                                            Orientation="Horizontal" 
+                                            VerticalAlignment="Center" >
                                     <TextBlock Text="{Binding FirstName}" />
-                                    <TextBlock Margin="10 0 5 0" Text="{Binding LastName}"/>
+                                    <TextBlock Margin="5 0 2 0" Text="{Binding LastName}"/>
                                     <TextBlock Text=","/>
-                                    <TextBlock Margin="20 0" Text="{Binding City}"/>
+                                    <TextBlock Margin="10 0" Text="{Binding City}"/>
                                 </StackPanel>
 
-                                <StackPanel Grid.Row="0" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Right">
-                                    <Button Style="{StaticResource ListButton}" CommandParameter="{Binding .}" Command="{Binding DataContext.ContactDetailsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" Content="&#xe712;" FontFamily="Segoe Fluent Icons"/>
-                            </StackPanel>
+                                <StackPanel Grid.Row="0" 
+                                            Grid.RowSpan="2" 
+                                            Orientation="Vertical" 
+                                            HorizontalAlignment="Right">
+                                    <Button Style="{StaticResource ListButton}" 
+                                            CommandParameter="{Binding .}" 
+                                            Command="{Binding DataContext.ContactDetailsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                            Content="&#xe712;" FontFamily="Segoe Fluent Icons"/>
+                                </StackPanel>
 
-                        </Grid>
+                            </Grid>
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>

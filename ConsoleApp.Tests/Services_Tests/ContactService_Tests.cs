@@ -2,9 +2,7 @@
 using Buisness.Interfaces;
 using Buisness.Models;
 using Moq;
-using System.Numerics;
 using System.Text.Json;
-using System.Collections.Immutable;
 
 
 namespace MainApp.Tests.Services_Tests;
@@ -60,8 +58,8 @@ public class ContactService_Tests
         Assert.NotNull(result);
         Assert.Equal(2, result.Count()); 
         Assert.Equal("firstname", result.First().FirstName);
-
     }
+
 
     //Mock created by chatGPT, with a few own changes.
     [Fact]
@@ -95,7 +93,6 @@ public class ContactService_Tests
         //assert
         Assert.Equal(3, updatedContacts.Count());
         Assert.Contains(updatedContacts, contact => contact.Id == "1" && contact.FirstName == "NewFirstName");
-
     }
 
 
@@ -128,5 +125,4 @@ public class ContactService_Tests
         Assert.Equal(2, updatedContacts.Count());
         Assert.DoesNotContain(updatedContacts, contact => contact.Id == "3");
     }
-
 }

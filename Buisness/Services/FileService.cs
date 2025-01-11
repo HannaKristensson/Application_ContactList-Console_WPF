@@ -4,7 +4,6 @@ using System.Diagnostics;
 
 namespace Buisness.Services;
 
-
 public class FileService(string directionPath = "Data", string fileName = "list.json") : IFileService
 {
     private readonly string _directoryPath = directionPath;
@@ -29,7 +28,6 @@ public class FileService(string directionPath = "Data", string fileName = "list.
             Debug.WriteLine($"Error saving to file: {ex.Message}");
             return false;
         }
-
     }
 
 
@@ -54,7 +52,4 @@ public class FileService(string directionPath = "Data", string fileName = "list.
             return null!;
         }
     }
-
-
-
 }

@@ -20,6 +20,7 @@ public class ContactFactory_Tests
         Assert.IsType<ContactModel>(result);
     }
 
+
     [Theory]
     [InlineData("test", "test", "test", "test", "test", "test", "test")]
     [InlineData(  "", "test", "test", "test", "test", "test", "test")]

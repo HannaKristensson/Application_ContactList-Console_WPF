@@ -20,10 +20,8 @@ public partial class ContactsViewModel : ObservableObject
         _contacts = new ObservableCollection<ContactModel>(_contactService.GetContacts());
     }
 
-
     [ObservableProperty]
     private ObservableCollection<ContactModel> _contacts = [];
-
 
     [RelayCommand]
     private void ContactDetails(ContactModel contact)

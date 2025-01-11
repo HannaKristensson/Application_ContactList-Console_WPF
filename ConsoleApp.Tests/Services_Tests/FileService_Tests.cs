@@ -1,13 +1,10 @@
-﻿
-
-using Buisness.Interfaces;
+﻿using Buisness.Interfaces;
 using Moq;
 
 namespace MainApp.Tests.Services_Tests;
 
 public class FileService_Tests
 {
-
     public readonly Mock<IFileService> _fileServiceMock;
     public readonly IFileService _fileService;
 
@@ -16,7 +13,6 @@ public class FileService_Tests
         _fileServiceMock = new Mock<IFileService>();
         _fileService = _fileServiceMock.Object;
     }
-
 
 
     [Fact]
@@ -31,7 +27,6 @@ public class FileService_Tests
         //assert
         Assert.True(result);
     }
-
 
 
     [Fact]

@@ -57,6 +57,7 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
         }
     }
 
+
     //Quit application:
     private static void QuitOption()
     {
@@ -138,7 +139,6 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
     }
 
 
-
     private void EditOption()
     {
         Console.Clear();
@@ -164,6 +164,7 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
                 Console.ReadKey();
                 break;
         }
+
 
         void EditContact()
         {
@@ -230,7 +231,6 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
                     {
                         Console.Write("Unable to update the contact.");
                     }
-
                 } else if (editOption.Equals("n", StringComparison.CurrentCultureIgnoreCase))
                 {
                     return;
@@ -240,8 +240,6 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
                     Console.ReadKey();
                     return;
                 }
-
-
             }
             else
             {
@@ -249,6 +247,7 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
             }
             Console.ReadKey();
         }
+
 
         void DeleteContact()
         {

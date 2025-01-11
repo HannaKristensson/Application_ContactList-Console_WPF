@@ -6,10 +6,7 @@ namespace ConsoleApp_contactList_C_.Factories;
 
 public static class ContactFactory
 {
-
-
     public static ContactModel Create() => new ();
-
 
     public static ContactEntity? Create(ContactModel contact)
     {
@@ -32,6 +29,5 @@ public static class ContactFactory
             Debug.WriteLine($"Error creating UsserEntity: {ex.Message}");
             return null;
         }
-
     }
 }

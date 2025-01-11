@@ -20,7 +20,9 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0" Style="{StaticResource BoxBgd}" Margin="0 10 0 0" >
+            <Border Grid.Row="0" 
+                    Style="{StaticResource BoxBgd}" 
+                    Margin="0 10 0 0" >
             <StackPanel Margin="15" >
                     <TextBlock Style="{StaticResource TitleText}" Margin="0 5" >Contactlist Creator</TextBlock>
                     <TextBlock TextAlignment="Center" FontSize="18" >
@@ -29,7 +31,6 @@
                     with an unlimited number of contacts. Start exploring now!</TextBlock>
             </StackPanel>
             </Border>
-
 
             <Grid Grid.Row="1" Margin="0 15" VerticalAlignment="Bottom" >
                 <Grid.ColumnDefinitions>
@@ -48,7 +49,6 @@
                         Content="VIEW CONTACTS"
                         Margin="5 0 0 0" />
             </Grid>
-
 
             <StackPanel Grid.Row="2" Grid.ColumnSpan="100" VerticalAlignment="Bottom" >
                 <Image Width="780"  Source="../Resourses/Images/home2.jpg" HorizontalAlignment="Center" />
