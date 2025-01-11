@@ -24,8 +24,9 @@
                     Text="Contact List"
                     Style="{StaticResource HeadlineText}"
              />
+            
 
-            <ListView Background="#D4F7F7" Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
+            <ListView Style="{StaticResource ListboxBgd}" Grid.Row="1" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
                         <Grid>

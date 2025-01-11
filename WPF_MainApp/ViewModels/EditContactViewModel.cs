@@ -22,10 +22,10 @@ public partial class EditContactViewModel : ObservableObject
 
 
     [RelayCommand]
-    private void UpdateUser()
+    private void UpdateContact()
     {
-        //var result = _contactService.UpdateUser(User);
-        //if (result)
+        var result = _contactService.UpdateContact(Contact);
+        if (result)
         {
             //TextBlock = "it worked";
             var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();

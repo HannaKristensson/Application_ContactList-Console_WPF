@@ -20,20 +20,21 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Margin="60 15" Background="#575759" >
-              <TextBlock Style="{StaticResource TitleText}" >CONTACTLIST CREATOR</TextBlock>
-                <TextBlock TextAlignment="Center" FontSize="16">
-                    Welcome here! Here you can create and edit your very own contact list with an</TextBlock>
-                <TextBlock TextAlignment="Center" FontSize="16">
-                    unlimited number of contacts. Start exploring now!</TextBlock>
+            <Border Grid.Row="0" Style="{StaticResource BoxBgd}" Margin="100 15" >
+            <StackPanel Margin="5" >
+                    <TextBlock Style="{StaticResource TitleText}" Foreground="#495E5D" Margin="0 5" >Contactlist Creator</TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="18" >
+                    Welcome here! Here you can create and edit your very own contact list</TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="18" >
+                    with an unlimited number of contacts. Start exploring now!</TextBlock>
             </StackPanel>
-            
+            </Border>
+
 
             <Grid Grid.Row="1" Margin="10" VerticalAlignment="Bottom" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0"
@@ -45,10 +46,6 @@
                         Style="{StaticResource MainButton}"
                         Command="{Binding ViewContactsCommand}"
                         Content="VIEW CONTACTS"
-                        Margin="5 0 5 0" />
-                <Button Grid.Column="2" 
-                        Style="{StaticResource MainButton}" 
-                        Content="EDIT CONTACT" 
                         Margin="5 0 0 0" />
             </Grid>
 

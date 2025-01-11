@@ -12,6 +12,9 @@
     <None Remove="Resourses\Images\Home.jpg" />
     <None Remove="Resourses\Images\Home2.jpg" />
     <None Remove="Resourses\Images\Home3.jpg" />
+    <None Remove="Resourses\Images\logo.png" />
+    <None Remove="Resourses\Images\mini.jpg" />
+    <None Remove="Resourses\Images\mini2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +25,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resourses\Images\Home3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resourses\Images\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resourses\Images\mini.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resourses\Images\mini2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

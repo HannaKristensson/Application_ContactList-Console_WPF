@@ -14,17 +14,18 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
+        
         Style="{StaticResource DefaultText}"
         Title="MainWindow" Height="600" Width="800">
-    <Border Style="{StaticResource Topbarbgd}" CornerRadius="4">
+    <Border Style="{StaticResource Topbarbgd}" CornerRadius="4" BorderBrush="#C2C2C2" BorderThickness="1" >
         <Grid  HorizontalAlignment="Left" Width="800">
             <Grid.RowDefinitions>
                 <RowDefinition Height="31"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid Grid.Row="0" x:Name="TopBar" Background="Transparent" MouseDown="TopBar_MouseDown">
-                <TextBlock Padding=" 20 5" FontWeight="bold" FontFamily="Corbel" Foreground="#49474A" >CONTACTLIST CREATOR</TextBlock>
+                <TextBlock Padding=" 25 5" FontWeight="bold" FontFamily="Corbel" Foreground="#49474A" >CONTACTLIST CREATOR</TextBlock>
                 <Button Style="{StaticResource QuitButton}" 
                         Click="ExitButton_Click"/>
             </Grid>
