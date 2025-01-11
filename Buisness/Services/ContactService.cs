@@ -69,7 +69,7 @@ public class ContactService(IFileService fileService) : IContactService
 
 
     //Update contact:
-    // Method below is created with help of ChatGTP. My biggest struggle was how to save the info back info the json file, which line 87-88 finally solved for me. 
+    // Update-method below is created with help of ChatGTP. My biggest struggle was how to save the info back info the json file, which line 87-88 finally solved for me. 
     public bool UpdateContact(ContactModel selectedContact)
     {
 

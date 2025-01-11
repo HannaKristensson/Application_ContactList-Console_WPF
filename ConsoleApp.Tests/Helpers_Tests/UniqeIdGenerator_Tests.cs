@@ -12,6 +12,7 @@ public class UniqeIdGenerator_Tests
         var result = UniqeIdGenerator.GenerateUniqeId();
 
         //assert
+        Assert.NotNull(result);
         Assert.True(Guid.TryParse(result, out _));
     }
 }

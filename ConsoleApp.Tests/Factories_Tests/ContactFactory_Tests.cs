@@ -32,6 +32,7 @@ public class ContactFactory_Tests
         ContactEntity result = ContactFactory.Create(contactModel)!;
 
         //assert
+        Assert.NotNull(result);
         Assert.IsType<ContactEntity>(result);
         Assert.Equal(contactModel.FirstName, result.FirstName);
         Assert.Equal(contactModel.LastName, result.LastName);

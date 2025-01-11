@@ -4,6 +4,7 @@ using Buisness.Models;
 using Moq;
 using System.Numerics;
 using System.Text.Json;
+using System.Collections.Immutable;
 
 
 namespace MainApp.Tests.Services_Tests;
@@ -50,19 +51,82 @@ public class ContactService_Tests
         new ContactModel { FirstName = "firstname2", LastName = "lastname2", Email = "email2", Phone = "phone2", StreetAddress = "adress2", PostalCode = "code2", City = "city2" }
     };
         var json = JsonSerializer.Serialize(contacts);
-        _fileServiceMock.Setup(fs => fs.GetListFromFile()).Returns(json);
+        _fileServiceMock.Setup(fileservice => fileservice.GetListFromFile()).Returns(json);
 
         //act
         var result = _contactService.GetContacts();
 
         //assert
-        //Result is not null
         Assert.NotNull(result);
-        //Result shows two contacts in list
-        Assert.Equal(2, result.Count());
-        //Result shows FirstName is firstname in contact one. 
+        Assert.Equal(2, result.Count()); 
         Assert.Equal("firstname", result.First().FirstName);
 
+    }
+
+    //Mock created by chatGPT, with a few own changes.
+    [Fact]
+    public void UpdateContact_ShouldEditContactInList_AndSaveChangesToFile()
+    {
+        //arrange
+        var contacts = new List<ContactModel>
+    {
+        new ContactModel { Id="1", FirstName = "firstname", LastName = "lastname", Email = "email", Phone = "phone", StreetAddress = "adress", PostalCode = "code", City = "city" },
+        new ContactModel { Id="2", FirstName = "firstname2", LastName = "lastname2", Email = "email2", Phone = "phone2", StreetAddress = "adress2", PostalCode = "code2", City = "city2" },
+        new ContactModel { Id="3", FirstName = "firstname3", LastName = "lastname3", Email = "email3", Phone = "phone3", StreetAddress = "adress3", PostalCode = "code3", City = "city3" }
+    };
+        var json = JsonSerializer.Serialize(contacts);
+        _fileServiceMock.Setup(fileservice => fileservice.GetListFromFile()).Returns(json);
+        _fileServiceMock.Setup(fileservice => fileservice.SaveListToFile(It.IsAny<string>()));
+
+        //act
+        var selectedContact = contacts.FirstOrDefault(contact => contact.Id == "1");
+        if (selectedContact != null)
+        {
+            selectedContact.FirstName = "NewFirstName";
+
+            var result = _contactService.UpdateContact(selectedContact);
+        }
+
+        var newList = contacts.Select(c => c.Id == "2" ? selectedContact : c).ToList();
+        _fileServiceMock.Setup(fs => fs.GetListFromFile()).Returns(JsonSerializer.Serialize(newList));
+
+        var updatedContacts = _contactService.GetContacts();
+
+        //assert
+        Assert.Equal(3, updatedContacts.Count());
+        Assert.Contains(updatedContacts, contact => contact.Id == "1" && contact.FirstName == "NewFirstName");
+
+    }
+
+
+    //Mock created by chatGPT, with a few own changes.
+    [Fact]
+    public void DeleteContact_ShouldDeleteContactFromList_AndSaveChangesToFile()
+    {
+        //arrange
+        var contacts = new List<ContactModel>
+    {
+        new ContactModel { Id="1", FirstName = "firstname", LastName = "lastname", Email = "email", Phone = "phone", StreetAddress = "adress", PostalCode = "code", City = "city" },
+        new ContactModel { Id="2", FirstName = "firstname2", LastName = "lastname2", Email = "email2", Phone = "phone2", StreetAddress = "adress2", PostalCode = "code2", City = "city2" },
+        new ContactModel { Id="3", FirstName = "firstname3", LastName = "lastname3", Email = "email3", Phone = "phone3", StreetAddress = "adress3", PostalCode = "code3", City = "city3" }
+    };
+        var json = JsonSerializer.Serialize(contacts);
+        _fileServiceMock.Setup(fileservice => fileservice.GetListFromFile()).Returns(json);
+        _fileServiceMock.Setup(fileservice => fileservice.SaveListToFile(It.IsAny<string>()));
+
+        //act
+        var selectedContact = contacts.FirstOrDefault(contact => contact.Id == "3");
+        var result = _contactService.DeleteContact(selectedContact);
+
+
+        var newList = contacts.Where(c => c.Id != "3").ToList();
+        _fileServiceMock.Setup(fs => fs.GetListFromFile()).Returns(JsonSerializer.Serialize(newList));
+
+        var updatedContacts = _contactService.GetContacts();
+
+        //assert
+        Assert.Equal(2, updatedContacts.Count());
+        Assert.DoesNotContain(updatedContacts, contact => contact.Id == "3");
     }
 
 }
