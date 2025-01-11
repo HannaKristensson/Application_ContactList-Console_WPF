@@ -4,17 +4,17 @@ A project for my .net education on EC. The project was first to build a contactl
 
 The Console app needed to:
 - Have a menu alternative that lists all contacts.
-- Have a menu alternative that creates new contacts.
+- Have a menu alternative to create new contacts.
 - Save all contacts to a json-file.
-- Read all contacts from the json-file then application boots and when the list updates.
+- Read all contacts from the json-file when application boots and when the list updates.
 - Have mocking for all methods used.
 
 The WPF app needed to:
 - Have a page that lists all contacts.
-- Have a page that creates new contacts.
+- Have a page to create new contacts.
 - Have a page where you can edit and delete contacts.
 - Save all contacts to a json-file.
-- Read all contacts from the json-file then application boots and when the list updates.
+- Read all contacts from the json-file when application boots and when the list updates.
 - Use Dependency Injections.
 - Use Class Library.
 
