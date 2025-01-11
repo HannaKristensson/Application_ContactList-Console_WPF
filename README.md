@@ -17,3 +17,6 @@ The WPF app needed to:
 - Read all contacts from the json-file then application boots and when the list updates.
 - Use Dependency Injections.
 - Use Class Library.
+
+
+Further update that would make this app even better is inter alia to incorporate various validations like input-validations in both apps and validation-messages in WPF app when things goes succesfully or not. 
