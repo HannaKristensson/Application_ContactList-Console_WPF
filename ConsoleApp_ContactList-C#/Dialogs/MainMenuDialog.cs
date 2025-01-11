@@ -179,12 +179,11 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
             Console.WriteLine("Choose a contact to edit: ");
             var option = Console.ReadLine()!.ToLower();
 
-            //Lines 179-184 below is ChatGTP generated
+            //Two Lines below is ChatGTP generated
             var selectedContact = contacts.FirstOrDefault(contact => $"{contact.FirstName} {contact.LastName}".ToLower() == option);
             if (selectedContact != null)
             {
                 Console.Clear();
-                //var id = selectedContact.Id;
                 Console.WriteLine($"_ You have selected _");
                 Console.WriteLine($"{"Name:",-15}{selectedContact.FirstName} {selectedContact.LastName}");
                 Console.WriteLine($"{"Phonenumber:",-15}{selectedContact.Phone}");
@@ -229,7 +228,7 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
                     }
                     else
                     {
-                        Console.Write("Unable to update contact");
+                        Console.Write("Unable to update the contact.");
                     }
 
                 } else if (editOption.Equals("n", StringComparison.CurrentCultureIgnoreCase))
@@ -253,8 +252,59 @@ public class MainMenuDialog(IContactService contactService) : IMainMenuDialog
 
         void DeleteContact()
         {
-            Console.WriteLine("delete");
-            Console.ReadKey();
+            Console.Clear();
+            var contacts = _contactService.GetContacts();
+            Console.WriteLine("___ Delete Contact ___");
+
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine($"{"Name:",-15}{contact.FirstName} {contact.LastName}");
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Choose a contact to delete: ");
+            var option = Console.ReadLine()!.ToLower();
+
+            //Two Lines below is ChatGTP generated
+            var selectedContact = contacts.FirstOrDefault(contact => $"{contact.FirstName} {contact.LastName}".ToLower() == option);
+            if (selectedContact != null)
+            {
+                Console.Clear();
+                Console.WriteLine($"__ You have selected __");
+                Console.WriteLine($"{"Name:",-15}{selectedContact.FirstName} {selectedContact.LastName}");
+                Console.WriteLine($"{"Phonenumber:",-15}{selectedContact.Phone}");
+                Console.WriteLine($"{"Email:",-15}{selectedContact.Email}");
+                Console.WriteLine($"{"Adress:",-15}{selectedContact.StreetAddress}");
+                Console.WriteLine($"{"",-15}{selectedContact.PostalCode} {selectedContact.City}");
+
+                Console.WriteLine("");
+                Console.WriteLine("Are you sure to delete this contact? y / n : ");
+                var editOption = Console.ReadLine()!;
+
+                if (editOption.Equals("y", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    bool result = _contactService.DeleteContact(selectedContact);
+                    if (result)
+                    {
+                        Console.WriteLine("Contact was deleted successfully!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unable to delete the contact.");
+                    }
+                }
+                else if (editOption.Equals("n", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine("Contact was not deleted! Press any key to go back.");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid option");
+                    return;
+                }
+                Console.ReadKey();
+            }
         }
     }
 }

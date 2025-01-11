@@ -8,5 +8,7 @@ namespace Buisness.Interfaces
         IEnumerable<ContactModel> GetContacts();
         //ContactModel GetContactById(string id);
         bool UpdateContact(ContactModel updatedContact);
+
+        bool DeleteContact(ContactModel selectedContact);
     }
 }

@@ -2,6 +2,7 @@
 using Buisness.Interfaces;
 using Buisness.Models;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
 namespace Buisness.Services;
@@ -90,6 +91,22 @@ public class ContactService(IFileService fileService) : IContactService
                 return true;
             }
         else
+        {
+            return false;
+        }
+    }
+
+    public bool DeleteContact(ContactModel selectedContact)
+    {
+        var contact = _contactList.FirstOrDefault(c => c.Id == selectedContact.Id);
+        if (contact != null)
+        {
+            _contactList.Remove(contact);
+
+            var json = JsonSerializer.Serialize(_contactList);
+            bool result = _fileService.SaveListToFile(json);
+            return true;
+        } else
         {
             return false;
         }

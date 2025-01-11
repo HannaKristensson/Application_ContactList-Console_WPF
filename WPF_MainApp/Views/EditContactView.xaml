@@ -104,7 +104,7 @@
                         Style="{StaticResource SecondaryButton}" 
                         Margin="0 0 5 0"/>
                 <Button Grid.Column="1" 
-                        Command="{Binding UpdateContactCommand}"
+                        Command="{Binding DeleteContactCommand}"
                         Content="DELETE" 
                         Style="{StaticResource DeleteButton}" 
                         Margin="5 0 5 0"/>

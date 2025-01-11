@@ -34,6 +34,18 @@ public partial class EditContactViewModel : ObservableObject
     }
 
     [RelayCommand]
+    private void DeleteContact()
+    {
+        var result = _contactService.DeleteContact(Contact);
+        if (result)
+        {
+            //TextBlock = "it worked";
+            var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+            mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<HomeViewModel>();
+        }
+    }
+
+    [RelayCommand]
     private void ViewContacts()
     {
         var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
